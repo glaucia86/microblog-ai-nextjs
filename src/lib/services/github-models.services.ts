@@ -15,8 +15,8 @@ class GitHubModelsService {
     this.validateEnvironmentVariables();
 
     this.client = new OpenAI({
-      baseURL: process.env.GITHUB_MODELS_ENDPOINT || "https://models.inference.ai.azure.com",
-      apiKey: process.env.GITHUB_MODELS_TOKEN
+      baseURL: process.env.NEXT_PUBLIC_GITHUB_MODELS_ENDPOINT || "https://models.inference.ai.azure.com",
+      apiKey: process.env.NEXT_PUBLIC_GITHUB_MODELS_TOKEN
     });
 
     this.toneGuidelines = this.getToneGuidelines();  
@@ -56,7 +56,7 @@ class GitHubModelsService {
   }
 
   private validateEnvironmentVariables() {
-    const requiredVars = ['GITHUB_MODELS_TOKEN'];
+    const requiredVars = ['NEXT_PUBLIC_GITHUB_MODELS_TOKEN'];
     const missingVars = requiredVars.filter(varName => !process.env[varName]);
 
     if (missingVars.length > 0) {

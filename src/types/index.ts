@@ -8,7 +8,7 @@ export interface GeneratedContent {
 
 export interface FormState {
   topic: string;
-  toneOfVoice: ToneOfVoice;
+  toneOfVoice: ToneOfVoice | string; 
   keywords: string;
 }
 

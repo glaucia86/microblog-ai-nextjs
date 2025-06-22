@@ -74,9 +74,9 @@ export async function POST(request: NextRequest) {
     }
     
     // Additional validation
-    if (validatedData.topic.length < 10 || validatedData.topic.length > 200) {
+    if (validatedData.topic.length < 10 || validatedData.topic.length > 280) {
       return NextResponse.json(
-        { success: false, error: 'Topic must be between 10 and 200 characters' },
+        { success: false, error: 'Topic must be between 10 and 280 characters' },
         { status: 400 }
       );
     }

@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Microblog AI Next.js
 
-## Getting Started
+This project is a microblog application built with Next.js, focused on integrating advanced AI capabilities to enhance user experience and explore new architectures and technologies. The goal is to create a modern microblog with intelligent and scalable features, keeping up with the latest trends in web development and artificial intelligence.
 
-First, run the development server:
+## 🖥️ Running Locally with GitHub Models
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+You can run this application locally using **GitHub Models**. Follow the steps below to set up and start the project:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. 📦 Install dependencies:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   ```bash
+   npm install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. 🏗️ Build the application:
 
-## Learn More
+   ```bash
+   npm run build
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. ⚙️ Create a `.env` file at the root of the project with the following content:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```env
+   NEXT_PUBLIC_GITHUB_MODELS_TOKEN=
+   NEXT_PUBLIC_GITHUB_MODELS_ENDPOINT=
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   > Fill in the values of the variables with your own GitHub Models environment information.
 
-## Deploy on Vercel
+4. ▶️ Start the application:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm run start
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+✨ The application will run as demonstrated in the gif below.
+
+![Microblog AI Next.js Demo](./resources/img/gif-01.gif)
+
+---
+
+## 🗺️ Roadmap: Next Steps
+
+The project roadmap is divided into versions, each bringing significant advancements:
+
+### 🔹 v2 – Deployment with Terraform, Azure Container Apps/Toolhouse, and OpenAI
+
+- 🚢 Automate application deployment using Terraform.
+- ☁️ Use Azure Container Apps or Toolhouse for container orchestration.
+- 🤖 Integrate OpenAI services for intelligent features
+
+### 🔹 v3 – RAG Architecture with LangChain.js
+
+- 🧩 Implement Retrieval-Augmented Generation (RAG) architecture using LangChain.js.
+- 🔍 Enable more contextual queries and optimized responses from custom data sources.
+
+### 🔹 v4 – Integration with Agents
+
+- 🕹️ Integrate intelligent agents for automation and advanced interactions within the platform.
+
+### 🔹 v5 – Model Context Protocol (MCP) with Agents
+
+- 🧠 Adopt the MCP protocol to improve interaction and context management between agents and AI models.
+
+---
+
+## 🤝 How to Contribute
+
+1. 🍴 Fork the repository
+2. 🌱 Create a branch for your feature or fix: `git checkout -b my-feature`
+3. ✏️ Commit your changes: `git commit -m 'feat: my new feature'`
+4. 🚀 Push to your branch: `git push origin my-feature`
+5. 🔄 Open a Pull Request
+---
+
+## 📬 Contact
+
+Feel free to open issues for questions, suggestions, or to report bugs!
+
+---
+
+**✨ Follow the roadmap to keep up with the latest updates and evolutions of the project! 🚀**

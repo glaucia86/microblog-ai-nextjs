@@ -12,6 +12,8 @@ node -v
 npm -v
 ```
 
+> **Nota:** Se não estiver instalado, você pode baixá-lo em [nodejs.org](https://nodejs.org/).
+
 ## 2. Obtendo acesso ao GitHub Models
 
 No decorrer do desenvolvimento da aplicação utlizaremos o GitHub Models. Mas, deixando claro que ele será utilizado somente na etapa de desenvolvimento e não em produção. Mas, o que seria o GitHub Models?

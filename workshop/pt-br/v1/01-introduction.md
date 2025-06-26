@@ -146,49 +146,29 @@ Aqui está uma visão geral de como será a aplicação:
 
 ## 📚 Pré-requisitos detalhados
 
-### 1. Node.js 18+ Instalado
+Para aproveitar ao máximo este workshop, é importante que você tenha alguns conhecimentos prévios. Aqui estão os principais pré-requisitos:
 
-Verifique se o Node.js está instalado executando o seguinte comando no terminal:
-
-```bash
-node -v
-```
-
-Se não estiver instalado, você pode baixá-lo em [nodejs.org](https://nodejs.org/).
-
-### 2. Conhecimento básico de React
-
-Nesse workshop se faz necessário ter um entendimento básico de React, incluindo componentes, props e estado. Assim sendo, você deve saber:
-
-- O que são componentes
-- Como usar props e state
-- Conceito de hooks (useState, useEffect)
-- JSX básico
-
-### 3. Conta no GitHub
-
-- Necessária para acessar GitHub Models
-- Crie gratuitamente em [github.com](https://github.com/)
-- Verifique seu email após criar
-
-### 4. Visual Studio Code (Recomendado)
-Baixe em: [code.visualstudio.com](https://code.visualstudio.com/)
-
-- **Extensões recomendadas:**
-
+- Instalação do Node.js
+- Conhecimento básico de Git
+- Conhecimento básico de React
+  - O que são componentes
+  - Como usar props e state
+  - Conceito de hooks (useState, useEffect)
+  - JSX básico
+- Conta no GitHub
+  - Necessária para acessar GitHub Models
+  - Crie gratuitamente em [github.com](https://github.com/)
+  - Verifique seu email após criar
+- Visual Studio Code
+  - Recomendado para desenvolvimento
+  - Baixe em: [code.visualstudio.com](https://code.visualstudio.com/)
+- Extensões recomendadas
   - [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
   - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
   - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
   - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradgashler.tailwindcss-intellisense)
   - [ES7+ React/Redux/React-Native snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)
   - [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag)
-
-### 5. Conhecimentos Complementares (Não Obrigatórios)
-
-- Git básico: para versionamento
-- Terminal/CMD: comandos básicos
-- CSS: conceitos fundamentais
-- API REST: conceito de requisições HTTP
 
 ## 💡 Dicas antes de começar
 

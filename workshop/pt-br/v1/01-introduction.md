@@ -46,8 +46,8 @@ Aqui está uma visão geral de como será a aplicação:
 ## 🛠️ Tecnologias utilizadas
 
 **1. Next.js 15 com App Router**
-  - O que é: Framework React de produção da Vercel
-  - Por que usar: 
+  - **O que é:** Framework React de produção da Vercel
+  - **Por que usar:** 
     - Server Components para melhor performance
     - App Router mais intuitivo pra o Pages Router
     - Otimizações automáticas (imagens, fontes, etc)
@@ -55,31 +55,31 @@ Aqui está uma visão geral de como será a aplicação:
     - Deploy fácil na Vercel. Mas, também suporta outros provedores de nuvem como, AWS, Azure e Google Cloud.
 
 **2. GitHub Models**
-  - O que é: Acesso gratuito a modelos de IA através do GitHub
-  - Por que usar:
+  - **O que é:** Acesso gratuito a modelos de IA através do GitHub
+  - **Por que usar:**
     - Acesso ao inúmeros modelos de IA de última geração, incluso o modelo GPT-4o sem custo.
     - Integração facilitada para projetos pessoais e aprendizado (em estágio de PoCs ou MVPs)
     - Sem necessidade de cartão de crédito (em estágio de PoCs ou MVPs)
 
 **3. TypeScript**
-  - O que é: JavaScript com tipagem estática
-  - Por que usar:
+  - **O que é:** JavaScript com tipagem estática
+  - **Por que usar:**
     - Detecta erros em tempo de desenvolvimento
     - Melhor IntelliSense no Visual Studio Code
     - Documentação automática do código
     - Refatoração mais segura
 
 **4. Tailwind CSS**
-  - O que é: Framework CSS utility-first
-  - Por que usar:
+  - **O que é:** Framework CSS utility-first
+  - **Por que usar:**
     - Desenvolvimento rápido de UI
     - Design consistente
     - Responsividade fácil
     - Tamanho otimizado em produção
 
 **5. React Hooks**
-  - O que é: Funções para gerenciar estado e efeitos
-  - Por que usar: 
+  - **O que é:** Funções para gerenciar estado e efeitos
+  - **Por que usar:**
     - Código mais limpo e reutilizável
     - Padrão moderno do React
     - Melhor performance

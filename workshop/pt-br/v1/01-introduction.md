@@ -89,60 +89,66 @@ Aqui está uma visão geral de como será a aplicação:
 
 ### 1. ✍️ Geração com 3 Tons de Voz
 
-#### Technical (Técnico)
+- Technical (Técnico)
 
-- Linguagem precisa e profissional
-- Dados e estatísticas
-- Terminologia específica da área
-- Exemplo: _"Implementamos uma solução baseada em microserviços que reduziu a latência em 47%..."_
+  - Linguagem precisa e profissional
+  - Dados e estatísticas
+  - Terminologia específica da área
+  - Exemplo: _"Implementamos uma solução baseada em microserviços que reduziu a latência em 47%..."_
 
-#### Casual (Casual)
+- Casual (Casual)
 
-- Tom conversacional e amigável
-- Linguagem do dia a dia
-- Emojis e expressões informais
-- Exemplo: _"Cara, você não vai acreditar no que descobri hoje! 🤯"_
+  - Tom conversacional e amigável
+  - Linguagem do dia a dia
+  - Emojis e expressões informais
+  - Exemplo: _"Cara, você não vai acreditar no que descobri hoje! 🤯"_
 
-#### Motivational (Motivacional)
+- Motivational (Motivacional)
 
-- Linguagem inspiradora
-- Foco em ação e crescimento
-- Calls-to-action poderosos
-- Exemplo: _"Hoje é o dia perfeito para transformar suas ideias em realidade! 💪"_
+  - Linguagem inspiradora
+  - Foco em ação e crescimento
+  - Calls-to-action poderosos
+  - Exemplo: _"Hoje é o dia perfeito para transformar suas ideias em realidade! 💪"_
 
-### 2. 🏷️ Sugestão de Hashtags Otimizadas
+### **2. 🏷️ Sugestão de Hashtags Otimizadas**
 
-- Análise do conteúdo para extrair temas principais
-- Sugestão de 5-7 hashtags relevantes
-- Mix de hashtags populares e de nicho
-- Formatação automática com #
+Uma das maiores dificuldades de quem produz conteúdo é escolher hashtags realmente relevantes para ampliar o alcance do post. Neste projeto, ao gerar o microblog, a IA faz uma análise automática do texto, identifica os principais temas e sugere de 5 a 7 hashtags otimizadas para potencializar o engajamento. 
 
-### 3. 💡 Insights Estratégicos
+O algoritmo mistura hashtags populares — aquelas que têm grande alcance — com hashtags de nicho, mais específicas, que ajudam a atingir públicos segmentados. Toda sugestão já vem formatada com o símbolo #, pronta para ser copiada e usada no LinkedIn, Twitter ou Instagram.
 
-- Análise do potencial de engajamento
-- Sugestões de melhor horário para postar
-- Dicas de como melhorar o alcance
-- Identificação de tendências relacionadas
+**Como isso funciona na prática?**
+Sempre que você gerar um microblog, as hashtags aparecerão separadas, facilitando a escolha ou a cópia de todas ao mesmo tempo.
 
-### 4. 📋 Sistema Copy-to-Clipboard
+### **3. 💡 Insights Estratégicos**
 
-- Copy individual (só texto, só hashtags)
-- Copy completo (texto + hashtags)
-- Feedback visual instantâneo
-- Compatível com todos os navegadores modernos e redes sociais
+Mais do que apenas gerar texto, a aplicação também entrega dicas práticas para melhorar sua presença nas redes sociais. A cada microblog, a IA analisa o potencial de engajamento do conteúdo e sugere:
 
-### 5. 🛡️ Rate Limiting e Validação
+* Melhores horários para publicar (baseado em tendências gerais)
+* Dicas para aumentar o alcance da postagem
+* Estratégias para engajar mais seguidores
+* Indicação de tendências relacionadas ao seu tema
 
-- Limite de 10 requisições por minuto
-- Validação de campos em tempo real
-- Mensagens de erro claras
-- Proteção contra spam
+Esses insights aparecem junto ao conteúdo gerado, ajudando você a não só postar, mas postar **melhor**, no momento certo e com maior chance de viralizar.
 
-### 6. 🎨 Interface Responsiva
+### **4. 📋 Sistema Copy-to-Clipboard**
 
-- Mobile-first design
-- Animações suaves
-- Acessibilidade (ARIA labels)
+A experiência do usuário também é prioridade. Por isso, você pode copiar rapidamente apenas o texto do microblog, apenas as hashtags, ou tudo junto (texto + hashtags) com apenas um clique. Sempre que clicar para copiar, um feedback visual é exibido, confirmando que o conteúdo já está disponível para colar em qualquer rede social, email ou documento. 
+
+Todo o sistema é compatível com navegadores modernos e plataformas sociais, tornando o processo de compartilhar seu microblog rápido, fácil e sem erros.
+
+### **5. 🛡️ Rate Limiting e Validação**
+
+Para garantir que o serviço permaneça rápido e estável para todos, o backend da aplicação limita o número de requisições que cada usuário pode fazer: são permitidas até 10 gerações de microblogs por minuto. Se esse limite for atingido, uma mensagem de erro amigável é mostrada, orientando a aguardar antes de tentar de novo.
+
+Além disso, todos os campos do formulário passam por validação em tempo real. Isso significa que você será avisado imediatamente se esquecer de preencher algum campo obrigatório ou se ultrapassar o limite de caracteres do microblog, evitando frustrações desnecessárias. Essas medidas também protegem o sistema contra spam e uso abusivo.
+
+### **6. 🎨 Interface Responsiva**
+
+A interface do projeto foi pensada para funcionar perfeitamente tanto em computadores quanto em celulares. O design mobile-first garante que todos os botões, formulários e áreas de visualização sejam fáceis de usar em qualquer tela.
+
+Pequenas animações suaves deixam a experiência mais agradável, transmitindo uma sensação de modernidade e profissionalismo.
+
+Por fim, a aplicação segue boas práticas de acessibilidade, com uso de ARIA labels e estrutura semântica adequada, tornando o uso acessível também para pessoas que utilizam leitores de tela ou têm outras necessidades específicas.
 
 ## 📚 Pré-requisitos detalhados
 

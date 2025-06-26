@@ -1,106 +1,102 @@
-# Criando o Projeto Base do Microblog A.I com Next.js
+# Creating the Base Project for Microblog A.I with Next.js
 
-Nesta seção, vamos criar nosso projeto do zero, entendendo cada decisão e comando. Vamos criar a base do nosso microblog utilizando Next.js e instalar as dependências necessárias.
+In this section, we’ll create our project from scratch, understanding each decision and command. We'll build the foundation of our microblog using Next.js and install the necessary dependencies.
 
-## Começando nossa Jornada
+## Starting Our Journey
 
-Imagine que você acabou de receber um novo projeto para desenvolver um microblog utilizando inteligência artificial. A primeira coisa que precisaremos fazer é preparar o espaço de trabalho. Abra o seu terminal e navegue até onde você guarda seus projetos.
-
-```bash
-cd ~/projetos
-```
-
-Se não tem uma pasta de projetos, agora é um bom momento para criar uma:
+Imagine you’ve just received a new project to develop a microblog using artificial intelligence. The first step is to prepare your workspace. Open your terminal and navigate to where you store your projects:
 
 ```bash
-mkdir -p ~/projetos
-cd ~/projetos
+cd ~/projects
 ```
 
-## Criando o projeto com Next.js
+If you don’t have a `projects` folder, now is a good time to create one:
+
+```bash
+mkdir -p ~/projects
+cd ~/projects
+```
+
+## Creating the Project with Next.js
 
 ![alt text](../../resources/images/nextjs-home-page.png)
 
-O **[Next.js](https://nextjs.org/)** é um framework React que permite a criação de aplicações web de forma fácil e rápida. Ele oferece recursos como renderização do lado do servidor, geração de sites estáticos e muito mais. Para criar nosso projeto, vamos utilizar o comando `npx create-next-app` para inicializar um novo projeto Next.js.
+**[Next.js](https://nextjs.org/)** is a React framework that enables fast and easy web application development. It provides features like server-side rendering, static site generation, and more. To create our project, we’ll use the `npx create-next-app` command:
 
 ```bash
 npx create-next-app@latest microblog-ai-nextjs
 ```
 
-Quando você executar este comando, o terminal vai fazer várias perguntas. Cada uma delas é importante para definir como nosso projeto será estruturado. Vamos entender cada escolha:
+After running this command, the terminal will ask you several questions. Each choice is important to define how our project will be structured. Here’s an explanation:
 
-- **Would you like to use TypeScript? (YES):** TypeScript nos ajuda a escrever código mais seguro. Pois ajuda a previnir erros que só apareciam quando o usuário estivesse usando a aplicação.
+* **Would you like to use TypeScript? (YES):** TypeScript helps write safer code by catching errors during development instead of in production.
 
-- **Would you like to use ESLint? (YES):** ESLint é como ter um revisor de código automático. Ele verifica se estamos seguindo as boas práticas e nos avisa sobre possíveis problemas.
+* **Would you like to use ESLint? (YES):** ESLint acts like a code reviewer, checking for best practices and potential issues.
 
-- **Would you like to use Tailwind CSS? (YES):** Tailwind CSS é uma biblioteca de estilos que nos ajuda a criar interfaces bonitas e responsivas de forma rápida e fácil.
+* **Would you like to use Tailwind CSS? (YES):** Tailwind CSS is a utility-first styling library that allows you to build beautiful, responsive interfaces quickly.
 
-- **Would you like your code inside a src/ directory? (YES):** Isso ajuda a manter a estrutura do projeto organizada, separando o código-fonte dos arquivos de configuração.
+* **Would you like your code inside a src/ directory? (YES):** This keeps the project organized by separating source code from config files.
 
-- **Would you like to use App Router? (YES):** O App Router é uma nova forma de gerenciar rotas no Next.js, tornando a navegação mais fácil e intuitiva.
+* **Would you like to use App Router? (YES):** The App Router is the newer and more intuitive way to handle routing in Next.js.
 
-- **Would you like to use Turbopack for next dev? (NO):** Turbopack é uma nova ferramenta de empacotamento que promete ser mais rápida que o Webpack, mas ainda está em desenvolvimento e pode não ser estável. Assim sendo, vamos usar as ferramentas estáveis e testadas.
+* **Would you like to use Turbopack for next dev? (NO):** Turbopack is still in development. We’ll stick to stable tools for now.
 
-- **Would you like to customize the import alias? (NO):** O alias padrão `@/*` já é perfeito para nosso projeto. Ele nos permite importar arquivos usando @/components/Button em vez de `../../../components/Button`. É um atalho que torna nosso código mais limpo
+* **Would you like to customize the import alias? (NO):** The default alias `@/*` is perfect for this project. It allows cleaner imports like `@/components/Button`.
 
-No final, as escolhas deverão corresponder conforme a imagem abaixo:
+Your final selections should look like the image below:
 
 ![alt text](../../resources/images/step-nextjs.png)
 
-## Estrutura do Projeto 
+## Project Structure
 
-Agora, vamos navegar até a pasta do projeto:
+Now, navigate into the project folder:
 
 ```bash
 cd microblog-ai-nextjs
 ```
 
-Abra o projeto no Visual Studio Code
+Open the project in Visual Studio Code:
 
 ```bash
 code .
 ```
 
-Quando você abrir o projeto, verá a estrutura de pastas e arquivos que o Next.js criou para nós. A partir daqui, podemos começar a desenvolver nosso microblog utilizando as melhores práticas e ferramentas disponíveis.
+When you open the project, you’ll see the folder and file structure generated by Next.js. From here, we’ll begin developing our microblog using best practices and modern tools.
 
 ![alt text](../../resources/images/initial-nextjs-project.png)
 
-## Instalando dependências essenciais 
+## Installing Essential Dependencies
 
-O projeto precisa de algumas ferramentas adicionais para funcionar corretamente. Vamos instalar as seguintes dependências:
-
-* Dependencies: 
+Our project needs a few additional tools to work properly. Let’s install the following:
 
 ```bash
 npm install @heroicons/react dotenv openai
 ```
 
-Por que cada uma?
+Why each one?
 
-- `@heroicons/react`: Esta biblioteca fornece ícones prontos para uso que se encaixam perfeitamente com o Tailwind CSS, facilitando a adição de ícones ao nosso projeto.
+* `@heroicons/react`: Provides ready-to-use icons that pair well with Tailwind CSS.
+* `dotenv`: Loads environment variables from a `.env` file—ideal for sensitive data like API keys. We’ll use it to store the OpenAI API key provided via GitHub Models.
+* `openai`: The official OpenAI SDK to interact with the OpenAI API and its language models.
 
-- `dotenv`: Esta biblioteca é usada para carregar variáveis de ambiente a partir de um arquivo .env, permitindo que mantenhamos informações sensíveis, como chaves de API, fora do código-fonte. E, precisaremos dela para armazenar nossa chave da API da OpenAI que será gerada pelo GitHub Models.
+## Setting Up the Environment
 
-- `openai`: Esta é a biblioteca oficial da OpenAI, que nos permite interagir com a API da OpenAI e utilizar seus modelos de linguagem em nosso projeto.
-
-## Configurando o ambiente
-
-Crie um arquivo `.env` na raiz do projeto e adicione sua chave da API da OpenAI:
+Create a `.env` file in the root of the project:
 
 ```bash
 touch .env
 ```
 
-E, nesse arquivo `.env`, adicione a seguinte linha:
+Then, add the following to the file:
 
 ```bash
 NEXT_PUBLIC_GITHUB_MODELS_TOKEN=""
 NEXT_PUBLIC_GITHUB_MODELS_ENDPOINT=https://models.inference.ai.azure.com
 ```
 
-Deixe o TOKEN vazio por enquanto. Vamos preenchê-lo mais tarde quando obtivermos acesso ao GitHub Models.
+Leave the TOKEN empty for now—we’ll fill it in once we get GitHub Models access.
 
-Agora uma pequena modificação! Abre o arquivo `eslint.config.mjs` e adicione a seguinte configuração:
+Now let’s make a small update to the ESLint configuration. Open the `eslint.config.mjs` file and add the following:
 
 ```javascript
 import { dirname } from "path";
@@ -122,25 +118,24 @@ const eslintConfig = [
       '@typescript-eslint/no-unused-vars': 'off'
     }
   })
-  //...compat.extends("next/core-web-vitals", "next/typescript"),
 ];
 
 export default eslintConfig;
 ```
 
-## Limpando o Projeto Inicial
+## Cleaning the Initial Project
 
-O Next.js cria alguns arquivos de exemplo que não precisamos. Vamos fazer uma limpeza consciente.
+Next.js includes some sample files that we don’t need. Let’s clean those up.
 
-Primeiro, vamos remover os arquivos desnecessários
+First, remove the unnecessary files:
 
 ```bash
 rm -rf src/app/favicon.ico
 ```
 
-Agora vamos modificar o projeto! Já crie a seguinte estrutura de pastas:
+Now, create the following folder structure:
 
-```md
+```markdown
 - src:
   - app:
     - api
@@ -163,15 +158,15 @@ Agora vamos modificar o projeto! Já crie a seguinte estrutura de pastas:
     - index.ts
 ```
 
-Caso fique a dúvida, basta verificar a imagem de estrutura de pastas.
+You can refer to the project structure image if needed:
 
 ![alt text](../../resources/images/project-structure.png)
 
-## Alterando o arquivo `globals.css`
+## Modifying the `globals.css` File
 
-Vamos adicionar algumas configurações globais de estilo no arquivo `globals.css` para garantir que nosso aplicativo tenha uma aparência consistente.
+Let’s add some global styling to ensure a consistent appearance.
 
-Faça as seguintes alterações no arquivo `globals.css`:
+Open `globals.css` and update it with the following:
 
 <details><summary><b>src/app/globals.css</b></summary>
 <br/>
@@ -222,17 +217,16 @@ body {
 .backdrop-blur-xs {
   backdrop-filter: blur(2px);
 }
-
 ```
 
 </details>
 <br/>
 
-Este CSS define apenas o essencial: cores base e fonte. O Tailwind cuidará do resto! 
+This CSS defines base colors and fonts. Tailwind takes care of the rest!
 
-## Criando nossa primeira página
+## Creating Our First Page
 
-Abra o arquivo `src/app/page.tsx` e vamos fazer algumas modificações para deixar a página inicial mais interessante. Delete tudo e escreva:
+Open the `src/app/page.tsx` file and replace the content with:
 
 <details><summary><b>src/app/page.tsx</b></summary>
 <br/>
@@ -252,20 +246,21 @@ export default function Home() {
 </details>
 <br/>
 
-Vamos testar e verificar se tudo está funcionando. Vá até o terminal e execute o seguinte comando:
+Let’s test everything. In your terminal, run:
 
 ```bash
 npm run dev
 ```
 
-Abra seu navegador em http://localhost:3000. Você deve ver "Microblog AI Generator" centralizado na tela.
+Then open your browser at [http://localhost:3000](http://localhost:3000). You should see “Microblog AI Generator” centered on the screen.
 
-Se você ver isso, parabéns! você tem uma aplicação Next.js funcionando perfeitamente!
+If you see that, congrats! You now have a fully working Next.js app!
 
 ![alt text](../../resources/images/first-nextjs-page.png)
 
-## Próximos Passos
+## Next Steps
 
-Bom, na próxima sessão já começaremos a desenvolver ainda mais a aplicação e os seus componentes, que serão extremamente importantes para a funcionalidade do nosso gerador de microblogs. Nos vemos!
+In the next session, we’ll start developing the components that will power our microblog generator. See you there!
 
-**[⬅️ Back: Configuração do Ambiente de Desenvolvimento & GitHub Models](./02-configure-environment-gh-models.md) | [Next: Sessão 04 ➡️](./04-session.md)**
+**[⬅️ Back: Environment Setup & GitHub Models](./02-configure-environment-gh-models.md) | [Next: Session 04 ➡️](./04-session.md)**
+

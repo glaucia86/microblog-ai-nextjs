@@ -66,4 +66,4 @@ Our choice of GitHub Models for this project is based on three pillars:
 
 And that’s it! You’re now ready to start building our application. Let’s create the skeleton of our app next.
 
-**[⬅️ Back: Introduction](./01-introduction.md) | [Next: Session 03 ➡️](./03-session.md)**
+**[⬅️ Back: Introduction](./01-introduction.md) | [Next: Creating the Base Project for Microblog A.I with Next.js ➡️](./03-initial-project-nextjs.md)**

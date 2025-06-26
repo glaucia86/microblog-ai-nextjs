@@ -68,4 +68,4 @@ Veja como fazer isso no gif abaixo:
 
 E, pronto! É o que precisamos para começar a desenvolver a nossa aplicação! Vamos criar agora o esqueleto da nossa aplicação.
 
-**[⬅️ Back: Introdução](./02-configure-environment-gh-models.md) | [Next: Sessão 03 ➡️](./03-initial-project-nextjs.md)**
+**[⬅️ Back: Introdução](./02-configure-environment-gh-models.md) | [Next: Criando o Projeto Base do Microblog A.I com Next.js ➡️](./03-initial-project-nextjs.md)**

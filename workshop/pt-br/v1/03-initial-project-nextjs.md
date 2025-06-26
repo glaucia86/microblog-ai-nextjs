@@ -234,7 +234,7 @@ Este CSS define apenas o essencial: cores base e fonte. O Tailwind cuidará do r
 
 Abra o arquivo `src/app/page.tsx` e vamos fazer algumas modificações para deixar a página inicial mais interessante. Delete tudo e escreva:
 
-<details><summary><b>src/app/globals.css</b></summary>
+<details><summary><b>src/app/page.tsx</b></summary>
 <br/>
 
 ```tsx

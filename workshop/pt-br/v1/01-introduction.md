@@ -205,3 +205,5 @@ Vamos começar a desenvolver algo incrível aqui juntos! 🚀
 ---
 
 > **Nota**: este workshop será atualizado regularmente. Fique atento às novas sessões e materiais que serão adicionados! Última atualização: Junho de 2025
+
+**[⬅️ Back: Introdução 01](./01-introduction.md) | **[Next: Configuração do Ambiente de Desenvolvimento & GitHub Models ➡️](./02-configure-environment-gh-models.md)****

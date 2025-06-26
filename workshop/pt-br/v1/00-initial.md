@@ -1,5 +1,8 @@
 # Workshop: Desenvolva Aplicações Inteligentes com JavaScript/TypeScript e A.I - Zero to Hero!
 
+![Microblog AI Home Page](../../resources/images/microblog-home-page.png)
+![Microblog AI Generated Content](../../resources/images/generated-content.png)
+
 Sejam todos bem-vindos ao workshop! Neste evento, vamos explorar o poder do JavaScript/TypeScript e da Inteligência Artificial (A.I) para criar aplicações inovadoras e inteligentes. Preparem-se para uma jornada de aprendizado incrível, onde vocês se tornarão especialistas em desenvolver soluções que utilizam A.I de forma eficaz.
 
 A nossa intenção é justamente que você aprenda, desde desenvolver do zero uma aplicação completa utilizando JavaScript/TypeScript e A.I, até implementar funcionalidades avançadas com uso de bibliotecas e frameworks modernos alinhados com Inteligência Artificial.
@@ -31,7 +34,7 @@ Uma aplicação de geração de conteúdos que se chama: Microblog AI com Next.j
 
 Vejam a aplicação em funcionamento no gif abaixo:
 
-![](../resources/images/demo.gif)
+![Demo - Microblog AI](../resources/images/demo.gif)
 
 ## Ementa do workshop
 

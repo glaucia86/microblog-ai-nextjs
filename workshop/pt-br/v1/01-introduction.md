@@ -17,31 +17,31 @@ Nossa solução? Uma ferramenta inteligente que usa IA para gerar conteúdos em 
 
 ## 🚀 O que vamos criar?
 
-## Visão Geral da Aplicação
+## Visão geral da aplicação
 
 Vamos criar o Smart Microblog Generator, uma aplicação web e moderna que:
 
-**1. Página Inicial Atrativa**
+**1. Página inicial atrativa**
   - Hero section com call-to-action
   - Apresentação das features principais
   - Design moderno e responsivo
 
-**2. Página de Geração de Conteúdo Inteligente**
+**2. Página de geração de conteúdo inteligente**
   - Formulário intuitivo com validação em tempo real
   - Seletor visual de tom de voz
   - Preview instantâneo do conteúdo gerado
   - Sistema de cópia com feedback visual
 
-**3. API Robusta**
+**3. API robusta**
   - Integração com GitHub Models (GPT-4o)
   - Rate limiting para proteção
   - Tratamento de erros detalhado
 
-## Demonstração Visual
+## Demonstração da aplicação
 
 Aqui está uma visão geral de como será a aplicação:
 
-![Demonstração Visual](../../resources/images/demo.gif)
+![Demonstração da aplicação](../../resources/images/demo.gif)
 
 ## 🛠️ Stack Tecnológico Detalhado
 
@@ -85,7 +85,7 @@ Aqui está uma visão geral de como será a aplicação:
     - Melhor performance
     - Facilita testes
 
-## 📋 Funcionalidades Detalhadas
+## 📋 Funcionalidades detalhadas
 
 ### 1. ✍️ Geração com 3 Tons de Voz
 
@@ -144,7 +144,7 @@ Aqui está uma visão geral de como será a aplicação:
 - Animações suaves
 - Acessibilidade (ARIA labels)
 
-## 📚 Pré-requisitos Detalhados
+## 📚 Pré-requisitos detalhados
 
 ### 1. Node.js 18+ Instalado
 
@@ -156,7 +156,7 @@ node -v
 
 Se não estiver instalado, você pode baixá-lo em [nodejs.org](https://nodejs.org/).
 
-### 2. Conhecimento Básico de React
+### 2. Conhecimento básico de React
 
 Nesse workshop se faz necessário ter um entendimento básico de React, incluindo componentes, props e estado. Assim sendo, você deve saber:
 
@@ -171,7 +171,7 @@ Nesse workshop se faz necessário ter um entendimento básico de React, incluind
 - Crie gratuitamente em [github.com](https://github.com/)
 - Verifique seu email após criar
 
-### 4. VS Code (Recomendado)
+### 4. Visual Studio Code (Recomendado)
 Baixe em: [code.visualstudio.com](https://code.visualstudio.com/)
 
 - **Extensões recomendadas:**
@@ -190,7 +190,7 @@ Baixe em: [code.visualstudio.com](https://code.visualstudio.com/)
 - CSS: conceitos fundamentais
 - API REST: conceito de requisições HTTP
 
-## 💡 Dicas Antes de Começar
+## 💡 Dicas antes de começar
 
 Antes de iniciar, vale a pena preparar seu ambiente para garantir uma experiência mais tranquila e produtiva. Feche aplicativos que você não vai usar, mantenha o terminal aberto e já deixe o VS Code pronto para codar. Recomendo também criar uma pasta específica para o projeto e deixar este tutorial à mão para consultas rápidas, além de ir fazendo suas próprias anotações conforme avança.
 

@@ -80,4 +80,4 @@ Deixarei também um espaço aberto no próprio repositório para dúvidas. Basta
 
 Vamos começar?!
 
-| **[Next: Session 01 ➡️](./01-introduction.md)
+| **[Next: Introdução e Objetivos ➡️](./01-introduction.md)**

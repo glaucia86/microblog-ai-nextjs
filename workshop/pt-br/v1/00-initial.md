@@ -63,7 +63,7 @@ Ao final deste workshop, você será capaz de:
 - ✅ Implementar uma API segura com rate limiting
 - ✅ Criar interfaces modernas com Tailwind CSS
 - ✅ Usar TypeScript em projetos React
-- ✅ Fazer deploy na Vercel
+- ✅ Fazer deploy na Vercel ou em qualquer outro provedor de nuvem, como: Azure, AWS ou Google Cloud
 - ✅ Aplicar boas práticas de desenvolvimento
 
 ## 🤝 Suporte Durante o Workshop

@@ -34,7 +34,7 @@ Uma aplicação de geração de conteúdos que se chama: Microblog AI com Next.j
 
 Vejam a aplicação em funcionamento no gif abaixo:
 
-![Demo - Microblog AI](../resources/images/demo.gif)
+![Demo - Microblog AI](../../resources/images/demo.gif)
 
 ## Ementa do workshop
 

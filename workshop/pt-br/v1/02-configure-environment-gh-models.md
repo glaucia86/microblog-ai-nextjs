@@ -68,4 +68,4 @@ Veja como fazer isso no gif abaixo:
 
 E, pronto! É o que precisamos para começar a desenvolver a nossa aplicação! Vamos criar agora o esqueleto da nossa aplicação.
 
-**[⬅️ Back: Introdução](./00-session.md) | **[Next: Sessão 03 ➡️](./03-session.md)****
+**[⬅️ Back: Introdução](./01-introducao.md) | [Next: Sessão 03 ➡️](./03-session.md)**

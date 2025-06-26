@@ -43,7 +43,7 @@ Aqui está uma visão geral de como será a aplicação:
 
 ![Demonstração da aplicação](../../resources/images/demo.gif)
 
-## 🛠️ Stack Tecnológico Detalhado
+## 🛠️ Tecnologias utilizadas
 
 **1. Next.js 15 com App Router**
   - O que é: Framework React de produção da Vercel

@@ -268,4 +268,4 @@ Se você ver isso, parabéns! você tem uma aplicação Next.js funcionando perf
 
 Bom, na próxima sessão já começaremos a desenvolver ainda mais a aplicação e os seus componentes, que serão extremamente importantes para a funcionalidade do nosso gerador de microblogs. Nos vemos!
 
-**[⬅️ Back: Configuração do Ambiente de Desenvolvimento & GitHub Models](./02-configure-environment-gh-models.md) | [Next: Sessão 04 ➡️](./04-session.md)**
+**[⬅️ Back: Configuração do Ambiente de Desenvolvimento & GitHub Models](./02-configure-environment-gh-models.md) | [Next: Estrutura base e Tipagem e Criando os primeiros Componentes Reutilizáveis ➡️](./04-initial-structure-components-ctabutton.md)**

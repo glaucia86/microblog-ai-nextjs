@@ -262,5 +262,5 @@ If you see that, congrats! You now have a fully working Next.js app!
 
 In the next session, we’ll start developing the components that will power our microblog generator. See you there!
 
-**[⬅️ Back: Environment Setup & GitHub Models](./02-configure-environment-gh-models.md) | [Next: Session 04 ➡️](./04-session.md)**
+**[⬅️ Back: Environment Setup & GitHub Models](./02-configure-environment-gh-models.md) | [Next: Session 04 ➡️](./04-initial-structure-components-ctabutton.md)**
 

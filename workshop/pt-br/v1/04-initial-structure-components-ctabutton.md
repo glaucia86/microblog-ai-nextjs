@@ -335,6 +335,267 @@ const variantClasses = {
 - `transition-transform duration-200`: suaviza a animação
 - O ícone é SVG inline para máximo controle
 
+## Criando a página Principal (Home Page)
+
+### Conceitos de Landing Page Eficaz
+
+Uma landing page bem construída é fundamental para converter visitantes em usuários. Nossa homepage seguirá a estrutura clássica: **Hero Section** (impacto inicial), **Features Section** (demonstração de valor) e **CTA Final** (chamada para ação).
+
+### Implementando a Home Page
+
+Agora vamos criar nossa página principal em `src/app/page.tsx`. Este arquivo será automaticamente servido como a rota raiz (/) da nossa aplicação:
+
+<details><summary><b>src/app/page.tsx</b></summary>
+<br/>
+
+```tsx
+import { SparklesIcon } from "@heroicons/react/16/solid";
+import { 
+  ChatBubbleBottomCenterTextIcon,
+  ArrowsRightLeftIcon
+} from "@heroicons/react/24/outline";
+import CTAButton from "./components/CTAButton";
+
+interface Feature {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  bgColor: string;
+  iconColor: string;
+}
+
+const features: Feature[] = [
+  {
+    icon: <SparklesIcon className="w-6 h-6" />,
+    title: "Smart Insights",
+    description: "Trend analysis and optimized hashtag suggestions to maximize your reach and engagement.",
+    bgColor: "bg-blue-50 dark:bg-blue-900/20",
+    iconColor: "text-blue-600 dark:text-blue-400",
+  },
+  {
+    icon: <ChatBubbleBottomCenterTextIcon className='w-6 h-6' />,
+    title: 'Adaptive Tone of Voice',
+    description: 'Choose between technical, casual, or motivational tones to effectively reach your target audience.',
+    bgColor: 'bg-purple-50 dark:bg-purple-900/20',
+    iconColor: 'text-purple-600 dark:text-purple-400',
+  },
+  {
+    icon: <ArrowsRightLeftIcon className='w-6 h-6' />,
+    title: 'Multiple Variations',
+    description: 'Generate different versions of your content to find the perfect approach for your message.',
+    bgColor: 'bg-green-50 dark:bg-green-900/20',
+    iconColor: 'text-green-600 dark:text-green-400',
+  },
+];
+
+export default function HomePage() {
+  return (
+    <div className='min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300'>
+      {/* Hero Section */}
+      <section className='px-4 pt-24 pb-20 mx-auto max-w-7xl sm:px-6 lg:px-8'>
+        <div className='max-w-3xl mx-auto text-center space-y-8'>
+          <h1 className='text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl'>
+            <span className='block bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-200'>
+              Smart Microblog
+            </span>
+            <span className='block text-blue-600 dark:text-blue-500'>
+              Generator & Insights
+            </span>
+          </h1>
+          <p className='mx-auto max-w-2xl text-xl text-gray-500 dark:text-gray-300'>
+            Transform your ideas into impactful social media content. Maximize
+            your reach with AI-optimized posts powered by GitHub Models.
+          </p>
+          <div className='mt-8'>
+            <CTAButton href='/generate'>Get Started</CTAButton>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className='py-16 bg-white dark:bg-gray-800 transition-colors duration-300'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+          <div className='text-center'>
+            <h2 className='text-3xl font-extrabold text-gray-900 dark:text-white'>
+              Powerful Features
+            </h2>
+          </div>
+
+          <div className='grid grid-cols-1 gap-8 md:grid-cols-3 mt-16'>
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className={`${feature.bgColor} rounded-2xl p-8 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer`}
+              >
+                <div className='flex items-center gap-4 mb-4'>
+                  <div className={`rounded-lg bg-white dark:bg-gray-800 p-3 ${feature.iconColor}`}>
+                    {feature.icon}
+                  </div>
+                  <h3 className='text-xl font-semibold text-gray-900 dark:text-white'>
+                    {feature.title}
+                  </h3>
+                </div>
+                <p className='text-gray-600 dark:text-gray-300'>
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className='py-16 bg-gray-50 dark:bg-gray-900'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
+          <h2 className='text-3xl font-extrabold text-gray-900 dark:text-white mb-8'>
+            Ready to create impactful content?
+          </h2>
+          <CTAButton href='/generate'>Start For Free</CTAButton>
+        </div>
+      </section>
+    </div>
+  );
+}
+```
+
+</details>
+<br/>
+
+### 🎨 Análise Detalhada da Implementação
+
+#### 1. 1. Sistema de Ícones com `Heroicons`
+
+```tsx
+import { SparklesIcon } from "@heroicons/react/16/solid";
+import { 
+  ChatBubbleBottomCenterTextIcon,
+  ArrowsRightLeftIcon
+} from "@heroicons/react/24/outline";
+```
+
+- **Por que Heroicons?**
+  - **Consistência visual:** Todos os ícones seguem o mesmo estilo de design
+  - **Duas variações:** solid (preenchidos) e outline (contorno)
+  - **Tamanhos otimizados:** 16px para ícones pequenos, 24px para médios
+  - **SVG nativo:** Escaláveis e performáticos
+  - **Desenvolvido pela Tailwind:** Integração perfeita com as classes CSS
+
+#### 2. Interface Feature e Tipagem Estruturada
+
+```tsx
+interface Feature {
+  icon: React.ReactNode;    
+  title: string;           
+  description: string;     
+  bgColor: string;         
+  iconColor: string;       
+}
+```
+
+- **Benefícios desta estrutura:**
+  - **Reutilização:** Facilita a adição de novas funcionalidades
+  - **Consistência:** Garante que todos os cards tenham a mesma estrutura
+  - **Manutenibilidade:** Centralizamos os dados em um local
+  - **Type Safety:** TypeScript previne erros de propriedades
+
+
+#### 3. Array de Features com Design System
+
+```tsx
+const features: Feature[] = [
+  {
+    icon: <SparklesIcon className="w-6 h-6" />,
+    title: "Smart Insights",
+    description: "Trend analysis and optimized hashtag suggestions...",
+    bgColor: "bg-blue-50 dark:bg-blue-900/20",
+    iconColor: "text-blue-600 dark:text-blue-400",
+  },
+  // ...
+];
+```
+
+- **Padrão de Cores Sistemático:**
+
+  - Feature 1 (Insights): Azul - associado à inteligência e tecnologia
+  - Feature 2 (Tom de Voz): Roxo - associado à criatividade e comunicação
+  - Feature 3 (Variações): Verde - associado ao crescimento e sucesso
+
+- **Suporte ao Dark Mode:**
+
+  - Cada cor tem variação para tema escuro (dark:)
+  - Opacidade reduzida (/20) para fundos sutis no dark mode
+  - Cores mais claras para ícones no dark mode
+
+#### 4. Estratégias de Design
+
+- **Padding responsivo:** px-4 sm:px-6 lg:px-8 adapta espaçamento por tela
+- **Espaçamento vertical:** pt-24 pb-20 cria respiração adequada
+- **Largura máxima:** max-w-7xl previne linhas muito longas em telas grandes
+- **Centralização:** mx-auto text-center foca atenção no conteúdo
+
+Agora abre o terminal e execute o comando:
+
+```bash
+npm run dev
+```
+
+Abra o navegador e acesse `http://localhost:3000` para ver a página inicial em ação.
+
+![Home Page](../../resources/images/home-page.png)
+
+Legal, não é mesmo? Temos uma página inicial funcional com um layout responsivo e estilizado, além de um componente reutilizável `CTAButton` que pode ser usado em várias partes da aplicação.
+
+Vamos agora fazer alguns exercícios?
+
+## 🧪 Exercícios Práticos Avançados
+
+### 1. **Adicione Animações de Entrada**
+
+Implemente animações staggered para os cards de features:
+
+```tsx
+// Dica: Use transition delays baseados no index
+className={`... transition-all duration-300 delay-${index * 100}`}
+```
+
+### 2. Crie uma Quarta Feature
+
+Adicione uma nova funcionalidade ao array:
+
+```tsx
+{
+  icon: </* Escolha um ícone apropriado */>,
+  title: "Analytics Dashboard",
+  description: "Track performance metrics...",
+  bgColor: "bg-orange-50 dark:bg-orange-900/20",
+  iconColor: "text-orange-600 dark:text-orange-400",
+}
+```
+
+### 3. Implemente Scroll Smooth
+
+Adicione navegação suave entre seções:
+
+```tsx
+// Adicione IDs nas seções e modifique os CTAButtons
+<section id="features" className="...">
+<CTAButton href="#features">Learn More</CTAButton>
+```
+
+### 4. Adicione Métricas Visuais
+
+Inclua uma seção com números impressionantes:
+
+```tsx
+const stats = [
+  { number: "10K+", label: "Posts Generated" },
+  { number: "95%", label: "Engagement Increase" },
+  { number: "500+", label: "Happy Users" }
+];
+```
+
+> **💡 Dica Pro:** Sempre teste sua landing page em dispositivos reais e diferentes condições de rede para garantir uma experiência consistente!
+
 ## Próximos Passos
 
 Vamos continuar avançando no desenvolvimento da nossa aplicação, criando mais componentes reutilizáveis e integrando a lógica de geração de conteúdo com IA.

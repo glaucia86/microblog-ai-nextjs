@@ -327,6 +327,155 @@ const variantClasses = {
 * `transition-transform duration-200`: smooths the animation
 * The icon is inline SVG for maximum control
 
+## Creating the Main Page (Home Page)
+
+### Effective Landing Page Concepts
+
+A well-crafted landing page is key to converting visitors into users. Our homepage will follow a classic structure: **Hero Section** (initial impact), **Features Section** (value demonstration), and **Final CTA** (call to action).
+
+### Implementing the Home Page
+
+Now let’s create our main page in `src/app/page.tsx`. This file will automatically serve as the root route (`/`) of our application:
+
+<details><summary><b>src/app/page.tsx</b></summary>
+<br/>
+
+> *(Code remains the same as it's already written in English in your original message)*
+
+</details>
+<br/>
+
+### 🎨 Detailed Implementation Analysis
+
+#### 1. Icon System with `Heroicons`
+
+```tsx
+import { SparklesIcon } from "@heroicons/react/16/solid";
+import { 
+  ChatBubbleBottomCenterTextIcon,
+  ArrowsRightLeftIcon
+} from "@heroicons/react/24/outline";
+```
+
+* **Why Heroicons?**
+
+  * **Visual Consistency:** All icons follow the same design style
+  * **Two Variants:** solid (filled) and outline (stroked)
+  * **Optimized Sizes:** 16px for small, 24px for medium icons
+  * **Native SVG:** Scalable and performant
+  * **Tailwind Integration:** Perfectly aligned with Tailwind utility classes
+
+#### 2. `Feature` Interface and Structured Typing
+
+```tsx
+interface Feature {
+  icon: React.ReactNode;    
+  title: string;           
+  description: string;     
+  bgColor: string;         
+  iconColor: string;       
+}
+```
+
+* **Benefits of This Structure:**
+
+  * **Reusability:** Makes it easy to add new features
+  * **Consistency:** Ensures all cards have the same shape
+  * **Maintainability:** Centralizes data in one place
+  * **Type Safety:** TypeScript prevents property errors
+
+#### 3. Features Array with Design System
+
+```tsx
+const features: Feature[] = [
+  {
+    icon: <SparklesIcon className="w-6 h-6" />,
+    title: "Smart Insights",
+    description: "Trend analysis and optimized hashtag suggestions...",
+    bgColor: "bg-blue-50 dark:bg-blue-900/20",
+    iconColor: "text-blue-600 dark:text-blue-400",
+  },
+  // ...
+];
+```
+
+* **Systematic Color Scheme:**
+
+  * Feature 1 (Insights): Blue – associated with intelligence and technology
+  * Feature 2 (Tone of Voice): Purple – associated with creativity and communication
+  * Feature 3 (Variations): Green – associated with growth and success
+
+* **Dark Mode Support:**
+
+  * Each color has a dark theme variation (`dark:`)
+  * Reduced opacity (`/20`) for subtle backgrounds in dark mode
+  * Lighter text/icon colors for better contrast
+
+#### 4. Design Strategies
+
+* **Responsive Padding:** `px-4 sm:px-6 lg:px-8` adjusts spacing based on screen size
+* **Vertical Spacing:** `pt-24 pb-20` creates breathing room
+* **Max Width Control:** `max-w-7xl` prevents overly wide lines on large screens
+* **Center Alignment:** `mx-auto text-center` focuses attention on the content
+
+Open your browser and go to `http://localhost:3000` to see the homepage in action.
+
+![Home Page](../../resources/images/home-page.png)
+
+Pretty cool, right? We now have a functional homepage with a responsive and styled layout, along with a reusable `CTAButton` component that can be used across different parts of the application.
+
+Shall we move on to some exercises?
+
+## 🧪 Advanced Practical Exercises
+
+### 1. **Add Entry Animations**
+
+Implement staggered animations for the feature cards:
+
+```tsx
+// Tip: Use transition delays based on index
+className={`... transition-all duration-300 delay-${index * 100}`}
+```
+
+### 2. Create a Fourth Feature
+
+Add a new feature item to the array:
+
+```tsx
+{
+  icon: < /* Choose an appropriate icon */ />,
+  title: "Analytics Dashboard",
+  description: "Track performance metrics...",
+  bgColor: "bg-orange-50 dark:bg-orange-900/20",
+  iconColor: "text-orange-600 dark:text-orange-400",
+}
+```
+
+### 3. Implement Smooth Scroll
+
+Enable smooth scrolling between sections:
+
+```tsx
+// Add IDs to sections and modify the CTAButtons
+<section id="features" className="...">
+<CTAButton href="#features">Learn More</CTAButton>
+```
+
+### 4. Add Visual Metrics
+
+Include a section with impressive numbers:
+
+```tsx
+const stats = [
+  { number: "10K+", label: "Posts Generated" },
+  { number: "95%", label: "Engagement Increase" },
+  { number: "500+", label: "Happy Users" }
+];
+```
+
+> **💡 Pro Tip:** Always test your landing page on real devices and under different network conditions to ensure a consistent experience!
+
+
 ## Next Steps
 
 We’ll keep moving forward with the development of our application by creating more reusable components and integrating the content generation logic with AI.

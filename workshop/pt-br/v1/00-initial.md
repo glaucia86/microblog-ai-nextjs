@@ -30,7 +30,7 @@ Uma aplicação de geração de conteúdos que se chama: Microblog AI com Next.j
 - Na versão 2.0: Arquitetura RAG (Retrieval-Augmented Generation) com LangChain.js
 - Na versão 3.0: Integração com Agents
 - Na versão 4.0: Uso do Model Context Protocol (MCP) com Agents
-- Na versão 5.0: Deployment da Aplicação usando conceitos de IaC com Terraform, serviço de nuvem (Azure, AWS ou GCP - o que for da sua escolha)/Toolhouse e usando a API da OpenAI em produção
+- Na versão 5.0: Deployment da Aplicação usando conceitos de IaC com Terraform, serviço de nuvem (Azure, AWS ou GCP - o que for da sua escolha)/Toolhouse e usando a API da OpenAI em produção. Usaremos o **[Gemini CLI](https://github.com/google-gemini/gemini-cli)** como exemplo para deployment dessa aplicação.
 
 Vejam a aplicação em funcionamento no gif abaixo:
 

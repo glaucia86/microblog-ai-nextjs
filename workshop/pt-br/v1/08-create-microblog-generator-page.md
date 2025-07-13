@@ -599,4 +599,4 @@ Na última sessão, vamos testar a aplicação e ver ela em ação! E, claro ver
 
 > **Dica Profissional:** As melhores experiências de usuário são invisíveis — elas parecem naturais e sem esforço. Quando os usuários conseguem atingir seus objetivos sem nem pensar na interface, você alcançou um excelente design de UX. Nossa aplicação demonstra como a excelência técnica no backend e o design cuidadoso no frontend se combinam para criar exatamente esse tipo de experiência fluida. A jornada de uma ideia bruta até um conteúdo de microblog refinado deve parecer mágica para o usuário — mas nós sabemos das decisões de engenharia e design que tornam essa mágica possível. Esse é o verdadeiro sinal de um desenvolvimento profissional de aplicações.
 
-**[⬅️ Back: Criando uma interface de usuário avançada para o Microblog AI](./07-build-ui-for-microblog.md) | [Next: Sessão 09 ➡️](./09-session.md)**
+**[⬅️ Back: Criando uma interface de usuário avançada para o Microblog AI](./07-build-ui-for-microblog.md) | [Conclusão e Próximos Passos ➡️](./09-final-v1-app.md)**

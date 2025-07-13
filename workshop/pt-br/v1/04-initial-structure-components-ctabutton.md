@@ -607,4 +607,4 @@ Na **Sessão 05 - Integração com a Inteligência Artificial e GitHub Models**,
 - **Implementar validação multicamadas** para garantir qualidade e consistência das respostas
 - **Aplicar o padrão Singleton**
 
-**[⬅️ Back: Criando o Projeto Base do Microblog A.I com Next.js](./03-initial-project-nextjs.md) | [Next: Sessão 05 ➡️](./05-session.md)**
+**[⬅️ Back: Criando o Projeto Base do Microblog A.I com Next.js](./03-initial-project-nextjs.md) | [Next: Sessão 05 ➡️](./05-integration-with-ai.md)**

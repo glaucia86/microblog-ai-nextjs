@@ -486,4 +486,4 @@ In **Session 05 – Integration with Artificial Intelligence and GitHub Models**
 * **Apply the Singleton pattern**
 
 
-**[⬅️ Back: Creating the Microblog A.I Base Project with Next.js](./03-initial-project-nextjs.md) | [Next: Session 05 ➡️](./05-session.md)**
+**[⬅️ Back: Creating the Microblog A.I Base Project with Next.js](./03-initial-project-nextjs.md) | [Next: Session 05 ➡️](./05-integration-with-ai.md)**

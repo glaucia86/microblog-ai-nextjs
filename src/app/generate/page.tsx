@@ -93,17 +93,18 @@ export default function GeneratePage() {
     }
   };
 
-  // Form field handlers
-  const handleFieldChange = (field: keyof FormState, value: string | ToneOfVoice) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-    // Clear error when user starts typing
-    if (errors[field]) {
-      setErrors(prev => ({ ...prev, [field]: undefined }));
-    }
-  };
+  const handleFieldChange = useCallback(
+    (field: keyof FormState, value: string | ToneOfVoice) => {
+      setFormData(prev => ({ ...prev, [field]: value }));
+      if (errors[field]) {
+        setErrors(prev => ({ ...prev, [field]: undefined }));
+      }
+    },
+    [errors]
+  );
 
   // Share functionality
-  const handleShare = async (content: string) => {
+  const handleShare = useCallback (async (content: string) => {
     if (navigator.share) {
       try {
         await navigator.share({
@@ -118,7 +119,11 @@ export default function GeneratePage() {
       await navigator.clipboard.writeText(content);
       setShowSuccess(true);
     }
-  };
+  }, []);
+
+  const handleCloseSuccess = useCallback(() => {
+    setShowSuccess(false);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
@@ -281,7 +286,7 @@ export default function GeneratePage() {
       <SuccessNotification
         show={showSuccess}
         message="Content copied to clipboard!"
-        onClose={() => setShowSuccess(false)}
+        onClose={handleCloseSuccess}
       />
     </div>
   );

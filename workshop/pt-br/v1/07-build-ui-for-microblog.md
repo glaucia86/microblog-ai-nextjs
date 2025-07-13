@@ -921,4 +921,4 @@ Também implementaremos tratamento de erros sofisticado que trabalha em conjunto
 
 > **Dica Profissional:** Componentes bem projetados são como instrumentos em uma orquestra - cada um tem seu papel específico, mas juntos criam uma sinfonia de experiência do usuário. Invista tempo na consistência visual e comportamental entre componentes, pois isso se reflete diretamente na percepção de qualidade da aplicação pelo usuário.
 
-**[⬅️ Back: Integração com a API de Geração de Conteúdo](./06-integration-with-api-content-generated.md) | [Next: Sessão 08 ➡️](./08-session.md)**
+**[⬅️ Back: Integração com a API de Geração de Conteúdo](./06-integration-with-api-content-generated.md) | [Next: Criando a Página de Gerador do MicroblogAI ➡️](./08-create-microblog-generator-page.md)**

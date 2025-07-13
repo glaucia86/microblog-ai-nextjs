@@ -1,4 +1,4 @@
-# Estrutura base e Tipagem e Criando os primeiros Componentes Reutilizáveis
+# Estrutura base com Tipagem e Criando os primeiros Componentes Reutilizáveis
 
 Nessa sessão, vamos estabelecer a estrutura fundamental da nossa aplicação **Smart Microblog Generator**. Começaremos definindo os tipos TypeScript que garantirão a consistência dos dados, configuraremos o layout principal da aplicação e criaremos nosso primeiro componente reutilizável. Isso nos permitirá construir uma base sólida para a aplicação, facilitando a adição de novas funcionalidades no futuro.
 

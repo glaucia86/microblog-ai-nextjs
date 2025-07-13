@@ -7,7 +7,7 @@
   <img src="https://img.shields.io/badge/LangChain.js-fff?style=for-the-badge&logo=langchain&logoColor=black" />
 </p>
 
-<h1 align="center">🚀 Microblog AI Next.js</h1>
+<h1 align="center">🚀 Microblog AI with Next.js & AI Technologies</h1>
 
 <p align="center">
   <strong>Complete Workshop: Learn how to build an intelligent microblog with Next.js and AI technologies, from scratch to deployment!</strong>

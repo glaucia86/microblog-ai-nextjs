@@ -475,9 +475,15 @@ const stats = [
 
 > **💡 Pro Tip:** Always test your landing page on real devices and under different network conditions to ensure a consistent experience!
 
-
 ## Next Steps
 
-We’ll keep moving forward with the development of our application by creating more reusable components and integrating the content generation logic with AI.
+In **Session 05 – Integration with Artificial Intelligence and GitHub Models**, we’ll dive into the heart of our application. You will learn how to:
+
+* **Integrate GitHub Models** into your Next.js application, leveraging cutting-edge AI models for free
+* **Build a robust AI service** using professional standards for retry logic and error handling
+* **Develop effective prompts** for different tones of voice (technical, casual, motivational)
+* **Implement multi-layered validation** to ensure response quality and consistency
+* **Apply the Singleton pattern**
+
 
 **[⬅️ Back: Creating the Microblog A.I Base Project with Next.js](./03-initial-project-nextjs.md) | [Next: Session 05 ➡️](./05-session.md)**

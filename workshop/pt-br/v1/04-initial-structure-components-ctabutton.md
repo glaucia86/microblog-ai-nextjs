@@ -596,8 +596,15 @@ const stats = [
 
 > **💡 Dica Pro:** Sempre teste sua landing page em dispositivos reais e diferentes condições de rede para garantir uma experiência consistente!
 
+
 ## Próximos Passos
 
-Vamos continuar avançando no desenvolvimento da nossa aplicação, criando mais componentes reutilizáveis e integrando a lógica de geração de conteúdo com IA.
+Na **Sessão 05 - Integração com a Inteligência Artificial e GitHub Models**, mergulharemos no coração da nossa aplicação. Você aprenderá a:
+
+- **Integrar o GitHub Models** em sua aplicação Next.js, aproveitando modelos de IA de última geração gratuitamente
+- **Criar um serviço robusto de IA** com padrões profissionais de retry logic e tratamento de erros
+- **Desenvolver prompts eficazes** para diferentes tons de voz (técnico, casual, motivacional)
+- **Implementar validação multicamadas** para garantir qualidade e consistência das respostas
+- **Aplicar o padrão Singleton**
 
 **[⬅️ Back: Criando o Projeto Base do Microblog A.I com Next.js](./03-initial-project-nextjs.md) | [Next: Sessão 05 ➡️](./05-session.md)**

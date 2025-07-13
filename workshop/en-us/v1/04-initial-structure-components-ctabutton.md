@@ -27,7 +27,7 @@ export interface GeneratedContent {
 // Interface for the content generation form state
 export interface FormState {
   topic: string;              // Topic to generate content about
-  toneOfVoice: ToneOfVoice;   // Selected tone of voice
+  toneOfVoice: ToneOfVoice | string;   // Selected tone of voice
   keywords: string;           // Optional keywords
 }
 

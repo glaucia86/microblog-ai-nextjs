@@ -27,9 +27,9 @@ export interface GeneratedContent {
 
 // Interface para o estado do formulário de geração
 export interface FormState {
-  topic: string;              // Tópico sobre o qual gerar conteúdo
-  toneOfVoice: ToneOfVoice;   // Tom de voz selecionado
-  keywords: string;           // Palavras-chave opcionais
+  topic: string;                        // Tópico sobre o qual gerar conteúdo
+  toneOfVoice: ToneOfVoice | string;    // Tom de voz selecionado
+  keywords: string;                     // Palavras-chave opcionais
 }
 
 // Interface genérica para respostas da API

@@ -1,0 +1,1 @@
+Parei aqui: https://github.com/glaucia86/microblog-ai-nextjs/commit/74bd0781346daebc0ce0a78aee4d5d4b48e9cd21

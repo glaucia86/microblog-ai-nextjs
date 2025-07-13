@@ -47,8 +47,8 @@ class GitHubModelsService {
 
     // Configuração do cliente OpenAI para GitHub Models
     this.client = new OpenAI({
-      baseURL: process.env.GITHUB_MODELS_ENDPOINT || "https://models.inference.ai.azure.com",
-      apiKey: process.env.GITHUB_MODELS_TOKEN
+      baseURL: process.env.NEXT_PUBLIC_GITHUB_MODELS_ENDPOINT || "https://models.inference.ai.azure.com",
+      apiKey: process.env.NEXT_PUBLIC_GITHUB_MODELS_TOKEN
     });
 
     // Inicialização das guidelines de tom de voz

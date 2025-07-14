@@ -75,8 +75,6 @@ You can run the application locally using **GitHub Models**. Follow these steps:
 
 ![Microblog AI Next.js Demo](./resources/img/gif-01.gif)
 
----
-
 ## 🗺️ Roadmap: Next Steps
 
 The project evolves through versions, each bringing new advancements:
@@ -97,8 +95,6 @@ The project evolves through versions, each bringing new advancements:
 - ☁️ Orchestrate containers with some Cloud Provider (GCP, AWS, Vercel or Azure) and Toolhouse for AI Agents
 - 🤖 Integrate some additional intelligent features
 
----
-
 ## 💡 Why Give a Star and Fork?
 
 If you enjoyed the project or want to follow its evolution:
@@ -116,8 +112,6 @@ If you enjoyed the project or want to follow its evolution:
 - 🍴 <strong>Fork the repo</strong> to test, modify, or learn from the code.
 - 💬 Share with anyone interested in learning about applied AI in web!
 
----
-
 ## 🤝 How to Contribute
 
 1. 🍴 Fork the repository
@@ -126,12 +120,8 @@ If you enjoyed the project or want to follow its evolution:
 4. 🚀 Push: `git push origin my-feature`
 5. 🔄 Open a Pull Request
 
----
-
 ## 📬 Contact
 
 Open issues for questions, suggestions, or bug reports!
-
----
 
 <p align="center"><strong>✨ Follow the roadmap and contribute to the evolution of this project! 🚀</strong></p>

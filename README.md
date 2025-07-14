@@ -10,10 +10,10 @@
 <h1 align="center">🚀 Microblog AI with Next.js & AI Technologies</h1>
 
 <p align="center">
-  <strong>Complete Workshop: Learn how to build an intelligent microblog with Next.js and AI technologies, from scratch to ready production applicatoin!</strong>
+  <strong>Complete Workshop: Learn how to build an intelligent microblog with Next.js and AI technologies, from scratch to ready to production applicatoin!</strong>
 </p>
 
-This repository contains the code and materials for a <strong>hands-on workshop</strong> about building a microblog application with Next.js, integrating advanced AI features and exploring modern architectures. The goal is to provide a practical journey from initial setup to deployment, using best practices and current tools.
+This repository contains the code and materials for a <strong>hands-on workshop</strong> about building a microblog application with Next.js, integrating advanced AI features and exploring modern architectures. The goal is to provide a practical journey from initial to ready to production application, using best practices and current tools.
 
 ---
 
@@ -30,7 +30,7 @@ Want to test or explore the application quickly? Click the button below to open 
 
 ## 🎯 About the Workshop
 
-- **From scratch to deployment:** Learn how to set up, develop, and publish your application.
+- **From scratch to ready to production:** Learn how to set up, develop and let ready to deploy.
 - **Modern technologies:** Next.js, Tailwind CSS, TypeScript, Azure, OpenAI, LangChain.js, and more.
 - **Evolving roadmap:** The project is constantly evolving with new versions that expand features and AI integrations.
 
@@ -93,7 +93,7 @@ The project evolves through versions, each bringing new advancements:
 - 🧠 MCP protocol to manage context and interaction between agents and AI models
 
 ### 🔹 v5 – Deploy with Terraform, some Cloud Provider (GCP, AWS, Vercel or Azure)/Toolhouse and some LLM's provider (OpenAI, Ollama, Gemini...)
-- 🚢 Automate deployment with Terraform
+- 🚢 Automate deployment with Terraform with IaC
 - ☁️ Orchestrate containers with some Cloud Provider (GCP, AWS, Vercel or Azure) and Toolhouse for AI Agents
 - 🤖 Integrate some additional intelligent features
 

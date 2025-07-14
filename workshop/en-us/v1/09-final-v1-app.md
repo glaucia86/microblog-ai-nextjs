@@ -69,4 +69,4 @@ Thank you for participating in this workshop! I hope it was an incredible learni
 
 See you on the next learning journey! 🚀✨
 
-**[⬅️ Back: Building the Microblog AI Generator Page](./09-build-ui-for-microblog.md) | [Next: Session 10: Version 2.0 LangChain.js with RAG ➡️](./10-session.md)**
+**[⬅️ Back: Creating the Microblog AI Generator Page](./08-create-microblog-generator-page.md) | [Next: Session 10: Version 2.0 LangChain.js with RAG ➡️](./10-session.md)**

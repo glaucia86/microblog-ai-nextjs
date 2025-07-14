@@ -575,5 +575,5 @@ We’ll use the test API route we created as the foundation for our production A
 
 > **Pro Tip:** Always test your prompts with different types of input to ensure robustness. The quality of the prompt directly determines the quality of the AI’s response, so invest time experimenting and refining your instructions. The test system we implemented makes this experimentation fast and efficient, enabling rapid iteration during development.
 
-**[⬅️ Back: Base Structure with Typing and Reusable Components](./04-initial-structure-components-ctabutton.md) | [Next: Session 06 ➡️](./06-session.md)**
+**[⬅️ Back: Base Structure with Typing and Reusable Components](./04-initial-structure-components-ctabutton.md) | [Next: Session 06 ➡️](./06-integration-with-api-content-generated.md)**
 

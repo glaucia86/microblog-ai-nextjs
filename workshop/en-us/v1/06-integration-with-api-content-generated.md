@@ -495,7 +495,7 @@ We’ll use our production API as the foundation, implementing frontend error ha
 
 > **Pro Tip:** Robust APIs are the foundation of scalable applications. Time invested in validation, error handling, and performance optimization at the API layer pays off multiple times as the application grows. Always consider how your design decisions impact long-term maintainability and scalability.
 
-**[⬅️ Back: Integration with Artificial Intelligence and GitHub Models](./05-initial-structure-components-ctabutton.md) | [Next: Session 07 ➡️](./07-build-ui-for-microblog.md)**
+**[⬅️ Back: Integration with Artificial Intelligence and GitHub Models](./05-integration-with-ai.md) | [Next: Session 07 ➡️](./07-build-ui-for-microblog.md)**
 
 
 

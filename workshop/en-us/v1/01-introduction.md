@@ -210,4 +210,4 @@ Let’s start building something amazing together! 🚀
 > **Note:** This workshop is updated regularly. Stay tuned for new sessions and materials!
 > Last update: June 2025
 
-**[⬅️ Back: Introduction](./01-introduction.md) | [Next: Set Up the Development Environment & GitHub Models ➡️](./02-configure-environment-gh-models.md)**
+**[⬅️ Back: Introduction](./00-initial.md) | [Next: Set Up the Development Environment & GitHub Models ➡️](./02-configure-environment-gh-models.md)**

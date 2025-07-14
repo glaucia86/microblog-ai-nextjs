@@ -923,4 +923,4 @@ We’ll also implement sophisticated error handling that works in tandem with ou
 
 > **Pro Tip:** Well-designed components are like instruments in an orchestra—each has its own role, but together they create a symphony of user experience. Invest time in visual and behavioral consistency across components, as this directly impacts the user's perception of your app’s quality.
 
-**[⬅️ Back: Integration with the Content Generation API](./06-integration-with-api-content-generated.md) | [Next: Session 08 ➡️](./08-session.md)**
+**[⬅️ Back: Integration with the Content Generation API](./06-integration-with-api-content-generated.md) | [Next: Session 08 ➡️](./08-create-microblog-generator-page.md)**

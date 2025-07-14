@@ -619,4 +619,4 @@ In the final session, we’ll test the application and see it in action! We’ll
 >
 > The journey from raw idea to refined microblog content should feel like magic to the user—but we know the thoughtful engineering and design decisions that make that magic possible. That’s the hallmark of truly professional application development.
 
-**[⬅️ Back: Integration with the Content Generation API](./07-build-ui-for-microblog.md) | [Next: Conclusion and Next Steps ➡️](./09-final-v1-app.md)**
+**[⬅️ Back: Building an Advanced User Interface for Microblog AI](./07-build-ui-for-microblog.md) | [Next: Conclusion and Next Steps ➡️](./09-final-v1-app.md)**

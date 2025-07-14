@@ -1,4 +1,4 @@
-# Criando a Página de Gerador do Microblog AI
+# Criando a Página de Gerador de Conteúdo do Microblog AI
 
 Chegamos ao momento culminante do nosso workshop! Nesta sessão, integraremos todos os componentes que criamos anteriormente em uma página completa e funcional. Vamos construir o fluxo completo de experiência do usuário, desde a entrada de dados até a geração e compartilhamento de conteúdo. Esta é onde toda nossa arquitetura robusta se transforma em uma aplicação real que os usuários podem usar e amar.
 

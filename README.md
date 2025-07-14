@@ -81,18 +81,18 @@ You can run the application locally using **GitHub Models**. Follow these steps:
 
 The project evolves through versions, each bringing new advancements:
 
-### 🔹 v2 – RAG Architecture with LangChain.js
+#### 🔹 v2 – RAG Architecture with LangChain.js
 - 📌 Implement LangChain.js - the most important AI web framework
 - 🧩 Implement Retrieval-Augmented Generation (RAG)
 - 🔍 Contextual queries and optimized responses
 
-### 🔹 v3 – Integration with Agents
+#### 🔹 v3 – Integration with Agents
 - 🕹️ Intelligent agents for automation and advanced interactions
 
-### 🔹 v4 – Model Context Protocol (MCP) with Agents
+#### 🔹 v4 – Model Context Protocol (MCP) with Agents
 - 🧠 MCP protocol to manage context and interaction between agents and AI models
 
-### 🔹 v5 – Deploy with Terraform, some Cloud Provider (GCP, AWS, Vercel or Azure)/Toolhouse and some LLM's provider (OpenAI, Ollama, Gemini...)
+#### 🔹 v5 – Deploy with Terraform, some Cloud Provider (GCP, AWS, Vercel or Azure)/Toolhouse and some LLM's provider (OpenAI, Ollama, Gemini...)
 - 🚢 Automate deployment with Terraform with IaC
 - ☁️ Orchestrate containers with some Cloud Provider (GCP, AWS, Vercel or Azure) and Toolhouse for AI Agents
 - 🤖 Integrate some additional intelligent features

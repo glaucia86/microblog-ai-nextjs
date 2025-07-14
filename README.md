@@ -10,7 +10,7 @@
 <h1 align="center">🚀 Microblog AI with Next.js & AI Technologies</h1>
 
 <p align="center">
-  <strong>Complete Workshop: Learn how to build an intelligent microblog with Next.js and AI technologies, from scratch to deployment!</strong>
+  <strong>Complete Workshop: Learn how to build an intelligent microblog with Next.js and AI technologies, from scratch to ready production applicatoin!</strong>
 </p>
 
 This repository contains the code and materials for a <strong>hands-on workshop</strong> about building a microblog application with Next.js, integrating advanced AI features and exploring modern architectures. The goal is to provide a practical journey from initial setup to deployment, using best practices and current tools.
@@ -81,20 +81,21 @@ You can run the application locally using **GitHub Models**. Follow these steps:
 
 The project evolves through versions, each bringing new advancements:
 
-### 🔹 v2 – Deploy with Terraform, Azure Container Apps/Toolhouse, OpenAI
-- 🚢 Automate deployment with Terraform
-- ☁️ Orchestrate containers with Azure or Toolhouse
-- 🤖 Integrate OpenAI for intelligent features
-
-### 🔹 v3 – RAG Architecture with LangChain.js
+### 🔹 v2 – RAG Architecture with LangChain.js
+- 📌 Implement LangChain.js - the most important AI web framework
 - 🧩 Implement Retrieval-Augmented Generation (RAG)
 - 🔍 Contextual queries and optimized responses
 
-### 🔹 v4 – Integration with Agents
+### 🔹 v3 – Integration with Agents
 - 🕹️ Intelligent agents for automation and advanced interactions
 
-### 🔹 v5 – Model Context Protocol (MCP) with Agents
+### 🔹 v4 – Model Context Protocol (MCP) with Agents
 - 🧠 MCP protocol to manage context and interaction between agents and AI models
+
+### 🔹 v5 – Deploy with Terraform, some Cloud Provider (GCP, AWS, Vercel or Azure)/Toolhouse and some LLM's provider (OpenAI, Ollama, Gemini...)
+- 🚢 Automate deployment with Terraform
+- ☁️ Orchestrate containers with some Cloud Provider (GCP, AWS, Vercel or Azure) and Toolhouse for AI Agents
+- 🤖 Integrate some additional intelligent features
 
 ---
 

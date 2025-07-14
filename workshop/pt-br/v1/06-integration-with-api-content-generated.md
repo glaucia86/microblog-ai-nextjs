@@ -478,5 +478,5 @@ Utilizaremos nossa API de produção como foundation, implementando tratamento d
 
 > **Dica Profissional:** APIs robustas são a foundation de aplicações escaláveis. O tempo investido em validação, tratamento de erros, e otimizações de performance na camada de API se paga múltiplas vezes quando a aplicação cresce. Sempre pense em como suas decisões de design afetarão a manutenibilidade e escalabilidade a longo prazo.
 
-**[⬅️ Back: Integração com a Inteligencia Artificial e GitHub Models](./05-initial-structure-components-ctabutton.md) | [Next: Sessão 07 ➡️](./07-build-ui-for-microblog.md)**
+**[⬅️ Back: Integração com a Inteligencia Artificial e GitHub Models](./05-integration-with-ai.md) | [Next: Criando uma interface de usuário avançada para o Microblog AI ➡️](./07-build-ui-for-microblog.md)**
 

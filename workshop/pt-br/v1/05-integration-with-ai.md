@@ -573,4 +573,4 @@ Utilizaremos a API route de teste que criamos como foundation para a API de prod
 
 > **Dica Profissional:** Sempre teste seus prompts com diferentes tipos de entrada para garantir robustez. A qualidade do prompt determina diretamente a qualidade da resposta da IA, então invista tempo experimentando e refinando suas instruções. O sistema de testes que implementamos torna essa experimentação rápida e eficiente, permitindo iteração rápida durante o desenvolvimento.
 
-**[⬅️ Back: Estrutura base com Tipagem e Criando os primeiros Componentes Reutilizáveis](./04-initial-structure-components-ctabutton.md) | [Next: Sessão 06 ➡️](./06-session.md)**
+**[⬅️ Back: Estrutura base com Tipagem e Criando os primeiros Componentes Reutilizáveis](./04-initial-structure-components-ctabutton.md) | [Next: Integração com a API de Geração de Conteúdo ➡️](./06-integration-with-api-content-generated.md)**

@@ -1,6 +1,13 @@
+import { RetryManager } from "@/retry/retry-manager";
+import { ErrorType } from "@/retry/types";
 import { GeneratedContent } from "@/types";
+import { ContentGenerationContext, LangChainServiceConfig, LangChainTestResult, PerformanceMetrics } from "@/types/langchain-types";
 import { StructuredOutputParser } from "@langchain/core/output_parsers";
-import { ChatPromptTemplate, HumanMessagePromptTemplate, SystemMessagePromptTemplate } from "@langchain/core/prompts";
+import { 
+  ChatPromptTemplate, 
+  HumanMessagePromptTemplate, 
+  SystemMessagePromptTemplate 
+} from "@langchain/core/prompts";
 import { RunnableSequence } from "@langchain/core/runnables";
 import { ChatOpenAI } from "@langchain/openai";
 import { z } from "zod";
@@ -24,15 +31,27 @@ interface ToneGuidelines {
 class LangChainMicroblogService {
   private chatModel: ChatOpenAI;
   private readonly toneGuidelines: ToneGuidelines;
-  private outputParser: StructuredOutputParser<typeof generatedContentSchema>
+  private outputParser: StructuredOutputParser<typeof generatedContentSchema>;
+  private retryManager: RetryManager;
+  private config: LangChainServiceConfig;
+  private performanceMetrics: PerformanceMetrics;
 
-  constructor() {
+  constructor(config?: Partial<LangChainServiceConfig>) {
     this.validateEnvironmentVariables();
 
-    this.chatModel = new ChatOpenAI({
-      model: "gpt-4o",
+    this.config = {
+      modelName: "gpt-4o",
       temperature: 0.7,
       maxTokens: 500,
+      enableLogging: true,
+      enableRetry: true,
+      ...config
+    }
+
+    this.chatModel = new ChatOpenAI({
+      model: this.config.modelName,
+      temperature: this.config.temperature,
+      maxTokens: this.config.maxTokens,
       openAIApiKey: process.env.NEXT_PUBLIC_GITHUB_MODELS_TOKEN,
       configuration: {
         baseURL: process.env.NEXT_PUBLIC_GITHUB_MODELS_ENDPOINT || "https://models.inference.ai.azure.com",
@@ -40,15 +59,179 @@ class LangChainMicroblogService {
     });
 
     this.toneGuidelines = this.getToneGuidelines();
-
     this.outputParser = StructuredOutputParser.fromZodSchema(generatedContentSchema);
+
+    this.retryManager = new RetryManager({
+      enableLogging: this.config.enableLogging,
+      ...this.config.customRetryConfig
+    });
+
+    this.performanceMetrics = this.initializeMetrics();
   }
+
+  /**
+   * Main content generation method using LangChain
+   * Completely replaces previous implementation with OpenAI SDK
+   */
+  async generateMicroblogContent(
+    topic: string,
+    tone: string,
+    keywords?: string
+  ): Promise<GeneratedContent> {
+
+    this.validateInput(topic, tone, keywords);
+
+    const context: ContentGenerationContext = {
+      operationName: 'LangChain content generation',
+      topic,
+      tone,
+      keywords,
+      metadata: {
+        model:this.config.modelName,
+        temperature: this.config.temperature 
+      }
+    };
+
+    const startTime = Date.now();
+
+    try {
+      const result = this.config.enableRetry
+        ? await this.retryManager.executeWithRetry(
+          () => this.executeGeneration(topic, tone, keywords),
+          context
+          )
+        : await this.executeGeneration(topic, tone, keywords);
+      
+      this.updateSuccessMetrics(Date.now() - startTime);
+
+      return result;
+    } catch (error) {
+      this.updateFailureMetrics();
+      throw error;
+    }
+  }
+
+
+  private async executeGeneration(
+    topic: string, 
+    tone: string, 
+    keywords?: string): Promise<GeneratedContent> {
+    
+    const guidelines = this.toneGuidelines[tone] || this.toneGuidelines.casual;
+    const keywordsSection = keywords
+      ? `, , incorporating these keywords: ${keywords}` 
+      : '';
+    
+    const promptTemplate = this.createPromptTemplate(tone);
+
+    const chain = RunnableSequence.from([
+      promptTemplate,
+      this.chatModel,
+      this.outputParser
+    ]);
+
+    const result = await chain.invoke({
+      topic: topic,
+      keywords_section: keywordsSection,
+      format_instructions: this.outputParser.getFormatInstructions()
+    });
+
+    this.validateGeneratedContent(result);
+
+    if (this.config.enableLogging) {
+      console.log('✅ LangChain content generated successfully:', {
+        topic,
+        tone,
+        contentLength: result.mainContent.length,
+        hashtagsCount: result.hashtags.length,
+        insightsCount: result.insights.length
+      });
+    }
+
+    return result;
+  }
+
+  private createPromptTemplate(tone: string): ChatPromptTemplate {
+    
+    const guidelines = this.toneGuidelines[tone] || this.toneGuidelines.casual;
+    const systemPromptTemplate = `You are a professional content creator specializing in creating engaging microblog posts.
+
+      Your expertise includes:
+        - Creating viral-worthy content under 280 characters
+        - Understanding social media engagement patterns
+        - Crafting content that drives discussion and shares
+        - Adapting tone while maintaining authenticity
+        - Selecting impactful and trending hashtags
+
+      TONE REQUIREMENTS for ${tone} style:
+        ${guidelines.map(g => `• ${g}`).join('\n')}
+
+      RESPONSE GUIDELINES:
+        1. Content must be concise and impactful
+        2. Optimize for social media sharing
+        3. Ensure relevance to target audience
+        4. Create engaging and shareable content
+        5. Include strategic hashtags for discoverability
+
+      IMPORTANT: Your response must be in valid JSON format as specified below.
+
+      {format_instructions}`;
+
+    // Human prompt as dynamic template
+    const humanPromptTemplate = `Create a microblog post about "{topic}"{keywords_section}.
+
+        Generate content that:
+          - Captures attention within the first few words
+          - Provides value or insight to the reader
+          - Encourages engagement (likes, shares, comments)
+          - Uses the ${tone} tone consistently throughout
+          - Includes relevant and trending hashtags
+          - Provides actionable insights for the audience`;
+
+    // Composition of the complete template
+    return ChatPromptTemplate.fromMessages([
+      SystemMessagePromptTemplate.fromTemplate(systemPromptTemplate),
+      HumanMessagePromptTemplate.fromTemplate(humanPromptTemplate)
+    ]);
+  }
+
+  async testConnection(): Promise<LangChainTestResult> {
+    const context = {
+      operationName: 'LangChain connection test',
+      metadata: { testType: 'connectivity' }
+    };
+
+    return this.retryManager.executeWithRetry(async () => {
+      const startTime = Date.now();
+      
+      const testPrompt = ChatPromptTemplate.fromTemplate("Say 'test' in JSON format: {\"response\": \"test\"}");
+      const testParser = StructuredOutputParser.fromZodSchema(
+        z.object({ response: z.string() })
+      );
+      
+      const testChain = RunnableSequence.from([
+        testPrompt,
+        this.chatModel,
+        testParser
+      ]);
+      
+      await testChain.invoke({});
+      
+      return {
+        success: true,
+        latency: Date.now() - startTime,
+        model: this.chatModel.modelName,
+        timestamp: new Date().toISOString()
+      };
+    }, context);
+  }
+
 
   /**
    * Validate environment variables required for the service.
    * Ensures that all the necessary credentials are present
    */
-  validateEnvironmentVariables(): void {
+  private validateEnvironmentVariables(): void {
     const requiredVars = ['NEXT_PUBLIC_GITHUB_MODELS_TOKEN'];
     const missingVars = requiredVars.filter(varName => !process.env[varName]);
 
@@ -61,7 +244,7 @@ class LangChainMicroblogService {
    * Definition of guidelines for each tone of voice
    * Each tone has specific characteristics that guide the generation of content.
    */
-  getToneGuidelines(): ToneGuidelines {
+  private getToneGuidelines(): ToneGuidelines {
     return {
       technical: [
         'Use precise technical language and industry terminology',
@@ -87,102 +270,86 @@ class LangChainMicroblogService {
     }
   }
 
-  private createPromptTemplate(tone: string): ChatPromptTemplate {
-    const guidelines = this.toneGuidelines[tone] || this.toneGuidelines.casual;
-
-    const systemPromptTemplate = `You are a professional content creator specializing in creating engaging microblog posts.
-
-      Your expertise includes:
-        - Creating viral-worthy content under 280 characters
-        - Understanding social media engagement patterns
-        - Crafting content that drives discussion and shares
-        - Adapting tone while maintaining authenticity
-        - Selecting impactful and trending hashtags
-
-      TONE REQUIREMENTS for {tone} style:
-        {guidelines}
-
-      RESPONSE GUIDELINES:
-        1. Content must be concise and impactful
-        2. Optimize for social media sharing
-        3. Ensure relevance to target audience
-        4. Create engaging and shareable content
-        5. Include strategic hashtags for discoverability
-
-      IMPORTANT: Your response must be in valid JSON format as specified below.
-
-      {format_instructions}`;
-
-    // Human prompt as dynamic template
-    const humanPromptTemplate = `Create a microblog post about "{topic}"{keywords_section}.
-
-        Generate content that:
-          - Captures attention within the first few words
-          - Provides value or insight to the reader
-          - Encourages engagement (likes, shares, comments)
-          - Uses the {tone} tone consistently throughout
-          - Includes relevant and trending hashtags
-          - Provides actionable insights for the audience`;
-
-    // Composition of the complete template
-    return ChatPromptTemplate.fromMessages([
-      SystemMessagePromptTemplate.fromTemplate(systemPromptTemplate),
-      HumanMessagePromptTemplate.fromTemplate(humanPromptTemplate)
-    ]);
+  private validateInput(topic: string, tone: string, keywords?: string): void {
+    if (!topic || topic.trim().length === 0) {
+      throw new Error('Topic is required and cannot be empty');
+    }
+    
+    if (topic.length < 5) {
+      throw new Error('Topic must be at least 5 characters long');
+    }
+    
+    if (topic.length > 500) {
+      throw new Error('Topic cannot exceed 500 characters');
+    }
+    
+    const validTones = Object.keys(this.toneGuidelines);
+    if (!validTones.includes(tone)) {
+      throw new Error(`Invalid tone "${tone}". Valid tones: ${validTones.join(', ')}`);
+    }
+    
+    if (keywords && keywords.length > 200) {
+      throw new Error('Keywords cannot exceed 200 characters');
+    }
   }
 
-  /**
-   * Main content generation method using LangChain
-   * Completely replaces previous implementation with OpenAI SDK
-   */
-  async generateMicroblogContent(
-    topic: string,
-    tone: string,
-    keywords?: string
-  ): Promise<GeneratedContent> {
-    try {
-      const guidelines = this.toneGuidelines[tone] || this.toneGuidelines.casual;
-      const keywordsSection = keywords
-        ? `, incorporating these keywords: ${keywords}`
-        : '';
+  private initializeMetrics(): PerformanceMetrics {
+    return {
+      averageLatency: 0,
+      successRate: 0,
+      totalRequests: 0,
+      failedRequests: 0,
+      retryRate: 0,
+      lastResetTime: new Date().toISOString()
+    };
+  }
 
-      const promptTemplate = this.createPromptTemplate(tone);
+  private updateSuccessMetrics(latency: number): void {
+    this.performanceMetrics.totalRequests++;
+    this.performanceMetrics.averageLatency = 
+      (this.performanceMetrics.averageLatency + latency) / 2;
+    this.performanceMetrics.successRate = 
+      ((this.performanceMetrics.totalRequests - this.performanceMetrics.failedRequests) / 
+       this.performanceMetrics.totalRequests) * 100;
+  }
 
-      // Create a chain (operation sequence)
-      const chain = RunnableSequence.from([
-        promptTemplate,
-        this.chatModel,
-        this.outputParser
-      ]);
+  private updateFailureMetrics(): void {
+    this.performanceMetrics.totalRequests++;
+    this.performanceMetrics.failedRequests++;
+    this.performanceMetrics.successRate = 
+      ((this.performanceMetrics.totalRequests - this.performanceMetrics.failedRequests) / 
+       this.performanceMetrics.totalRequests) * 100;
+  }
 
-      // Execute chain with variables
-      const result = await chain.invoke({
-        tone: tone,
-        guidelines: guidelines.map(g => `• ${g}`).join('\n'),
-        format_instructions: this.outputParser.getFormatInstructions(),
-        topic: topic,
-        keywords_section: keywordsSection
-      });
+  configureRetry(config: Parameters<RetryManager['updateConfig']>[0]): void {
+    this.retryManager.updateConfig(config);
+  }
 
-      this.validateGeneratedContent(result);
+  getRetryConfig() {
+    return this.retryManager.getConfig();
+  }
 
-      console.log('✅ LangChain content generated successfully:', {
-        topic,
-        tone,
-        contentLength: result.mainContent.length,
-        hashtagsCount: result.hashtags.length,
-        insightsCount: result.insights.length
-      });
+  getPerformanceMetrics(): PerformanceMetrics {
+    return { ...this.performanceMetrics };
+  }
 
-      return result;
-    } catch (error) {
-      console.error('❌ LangChain generation error...: ', error);
+  resetMetrics(): void {
+    this.performanceMetrics = this.initializeMetrics();
+  }
 
-      if (error instanceof Error) {
-        throw new Error(`LangChain generation failed...: ${error.message}`);
-      }
-      throw error;
-    }
+  async simulateError(errorType: ErrorType): Promise<void> {
+    const errorMessages = {
+      [ErrorType.RETRYABLE]: 'Simulated retryable error',
+      [ErrorType.NON_RETRYABLE]: 'Simulated non-retryable error', 
+      [ErrorType.RATE_LIMIT]: 'Rate limit exceeded - too many requests',
+      [ErrorType.VALIDATION]: 'Validation error - invalid schema',
+      [ErrorType.NETWORK]: 'Network timeout - connection failed',
+      [ErrorType.API_KEY]: 'Invalid API key - unauthorized',
+      [ErrorType.PARSING]: 'JSON parsing error - malformed response',
+      [ErrorType.TIMEOUT]: 'Request timeout - operation took too long'
+    };
+    
+    throw new Error(errorMessages[errorType]);
   }
 
   /**
@@ -216,42 +383,6 @@ class LangChainMicroblogService {
       insightsCount: insights.length
     });
   }
-
-  private async executeWithRetry<T>(
-    operation: () => Promise<T>,
-    maxAttempts: number = 3,
-    delaysMs: number = 1000): Promise<T> {
-    let lastError: Error | undefined;
-
-    for (let attempt = 1; attempt <= maxAttempts; attempt++) {
-      try {
-        return await operation();
-      } catch (error) {
-        lastError = error as Error;
-        console.warn(`🔄 LangChain attempt ${attempt}/${maxAttempts} failed:`, {
-          error: error instanceof Error ? error.message : 'Unknown error',
-          attempt,
-          nextRetryIn: attempt < maxAttempts ? `${delaysMs * attempt}ms` : 'No more retries'
-        });
-
-        if (error instanceof Error) {
-          // Erros que não devem ser retried
-          if (error.message.includes('Invalid API key') ||
-            error.message.includes('environment variables') ||
-            error.message.includes('exceeds') ||
-            error.message.includes('validation')) {
-            console.error('🚫 Non-retryable error detected, failing fast:', error.message);
-            throw error;
-          }
-        }
-
-        if (attempt < maxAttempts) {
-          await new Promise(resolve => setTimeout(resolve, delaysMs * attempt));
-        }
-      }
-    }
-
-    throw new Error(`LangChain operation failed after ${maxAttempts} attempts. Last error: ${lastError?.message}`);
-  }
-
 }
+
+export { LangChainMicroblogService }

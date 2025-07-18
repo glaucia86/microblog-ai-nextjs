@@ -12,9 +12,9 @@ const OutputSchema = z.object({
 });
 
 export class LangChainClient {
-  private model: ChatOpenAI;
-  private parser: StructuredOutputParser<typeof OutputSchema>;
-  private chain: RunnableSequence;
+  private model!: ChatOpenAI;
+  private parser!: StructuredOutputParser<typeof OutputSchema>;
+  private chain!: RunnableSequence;
 
   constructor(private config: LangChainServiceConfig) {
     this.validateEnvironment();

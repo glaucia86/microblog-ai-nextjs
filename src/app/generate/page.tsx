@@ -18,7 +18,6 @@ export default function GeneratePage() {
     errors,
     updateField,
     validateForm,
-    clearErrors
   } = useFormValidation();
 
   const {
@@ -49,7 +48,6 @@ export default function GeneratePage() {
       await generateContent(request);
       showSuccess('Content generated successfully!');
     } catch (error) {
-      // Error is already handled in the hook
     }
   }, [validateForm, clearError, generateContent, showSuccess]);
 
@@ -62,10 +60,8 @@ export default function GeneratePage() {
     }
   }, [shareContent, showSuccess]);
 
-  // Show generation error in form if exists
   React.useEffect(() => {
     if (generationError) {
-      // You could update the form errors here if needed
     }
   }, [generationError]);
 

@@ -4,13 +4,13 @@ import React, { useCallback } from 'react';
 import { GenerateApiRequest } from '@/types';
 import { useFormValidation } from '@/hooks/useFormValidation';
 import { useContentGeneration } from '@/hooks/useContentGeneration';
-import { useShareContent } from '@/hooks/useShareContent';
-import { useNotification } from '@/hooks/useNotification';
-import { PageHeader } from '../components/layout/PageHeader';
+import { useNotification } from '../../hooks/useNotification';
+import { PageHeader } from '../components/generation/PageHeader';
 import { GenerationForm } from '../components/generation/GenerationForm';
 import { PreviewSection } from '../components/generation/PreviewSection';
 import LoadingOverlay from '../components/LoadingOverlay';
 import SuccessNotification from '../components/SuccessNotification';
+import { useShareContent } from '@/hooks/useShareContent';
 
 export default function GeneratePage() {
   const {

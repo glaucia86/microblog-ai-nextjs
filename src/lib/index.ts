@@ -14,7 +14,7 @@ export * from './utils/error-handler';
 
 // Services
 export * from './services/content-generation.service';
-export * from './services/prompt.service';
+export * from './services/prompt.services';
 
 // Errors
 export * from './errors/app-errors';

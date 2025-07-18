@@ -1,5 +1,5 @@
 import { LangChainServiceConfig } from "@/types/langchain-types";
-import { LangChainMicroblogService } from "./langchain-service";
+import { LangChainMicroblogService } from "./langchain.services";
 
 class LangChainServiceFactory {
   private static instance: LangChainMicroblogService | null = null;

@@ -1,121 +1,68 @@
 import { NextResponse } from 'next/server';
 import { LangChainService } from '../../../lib/services/langchain.factory';
-import { ServiceMigrator } from '../../../lib/services/migration/service.migrator';
+import { getContentGenerationService } from '../../../lib/services/content-generation.service';
 
 export async function GET() {
   try {
-    console.log('Running comprehensive migration tests...');
-
-    const results = {
-      factoryTests: {},
-      serviceTests: {},
-      migrationTests: {},
-      performanceTests: {}
-    };
-
-    console.log('Testing Factory Pattern...');
+    console.log('Starting Content Generation Service test...');
     
-    const devService = LangChainService.development();
-    const devConfig = devService.getServiceConfig();
+    const contentService = getContentGenerationService();
     
-    const prodService = LangChainService.production();
-    const prodConfig = prodService.getServiceConfig();
+    // Test current strategy
+    const currentStrategy = contentService.isUsingLangChain() ? 'LangChain' : 'GitHub Models';
+    console.log(`Current strategy: ${currentStrategy}`);
     
-    results.factoryTests = {
-      developmentConfig: {
-        enableLogging: devConfig.enableLogging,
-        enableRetry: devConfig.enableRetry
-      },
-
-      productionConfig: {
-        enableLogging: prodConfig.enableLogging,
-        enableRetry: prodConfig.enableRetry
-      },
-
-      singletonTest: devService === LangChainService.development(), // Deve ser true
-      factoryInfo: LangChainService.info()
-    };
-
-    console.log('Testing Services...');
-    
-    const testTopic = "Factory pattern in software engineering";
-    const testTone = "technical";
-    const testKeywords = "singleton, dependency injection, design patterns";
-
-    const langchainResult = await devService.generateMicroblogContent(
-      testTopic,
-      testTone,
-      testKeywords
+    // Test content generation
+    const testResult = await contentService.generateContent(
+      "Testing the new content generation service",
+      "casual",
+      "test, api, integration"
     );
-
-    const connectivityResult = await devService.testConnection();
-
-    results.serviceTests = {
-      generation: {
-        success: !!langchainResult.mainContent,
-        contentLength: langchainResult.mainContent.length,
-        hashtagsCount: langchainResult.hashtags.length,
-        insightsCount: langchainResult.insights.length
-      },
-      connectivity: connectivityResult,
-      metrics: devService.getPerformanceMetrics()
-    };
-
-    console.log('Testing Migration System...');
     
-    const comparisonResult = await ServiceMigrator.compareServices(
-      testTopic,
-      testTone,
-      testKeywords
+    console.log('Content generation test successful:', testResult);
+    
+    // Test strategy switching
+    const originalStrategy = contentService.isUsingLangChain();
+    
+    // Switch to opposite strategy and test
+    contentService.setStrategy(!originalStrategy);
+    const newStrategy = contentService.isUsingLangChain() ? 'LangChain' : 'GitHub Models';
+    console.log(`Switched to: ${newStrategy}`);
+    
+    const switchTestResult = await contentService.generateContent(
+      "Testing strategy switching",
+      "technical",
+      "strategy, test, switching"
     );
-
-    results.migrationTests = {
-      isUsingLangChain: ServiceMigrator.isUsingLangChain(),
-      comparison: {
-        langchain: {
-          success: comparisonResult.langchain.success,
-          duration: comparisonResult.langchain.duration
-        },
-        github: {
-          success: comparisonResult.github.success,
-          duration: comparisonResult.github.duration
-        }
-      }
-    };
-
-    console.log('Testing Performance...');
     
-    const performanceTests = [];
-    for (let i = 0; i < 3; i++) {
-      const startTime = Date.now();
-      await devService.generateMicroblogContent(
-        `Performance test ${i + 1}`,
-        "casual"
-      );
-      
-      performanceTests.push(Date.now() - startTime);
-    }
-
-    results.performanceTests = {
-      averageLatency: performanceTests.reduce((a, b) => a + b, 0) / performanceTests.length,
-      testRuns: performanceTests,
-      finalMetrics: devService.getPerformanceMetrics()
-    };
-
+    console.log('Strategy switch test successful:', switchTestResult);
+    
+    // Switch back to original
+    contentService.setStrategy(originalStrategy);
+    const restoredStrategy = contentService.isUsingLangChain() ? 'LangChain' : 'GitHub Models';
+    console.log(`↩Restored to: ${restoredStrategy}`);
+    
     return NextResponse.json({
       success: true,
-      message: 'Migration tests completed successfully!',
-      timestamp: new Date().toISOString(),
-      results
+      message: 'Migration test completed successfully!',
+      tests: {
+        originalStrategy: originalStrategy ? 'LangChain' : 'GitHub Models',
+        switchedStrategy: newStrategy,
+        restoredStrategy: restoredStrategy,
+        originalResult: testResult,
+        switchResult: switchTestResult
+      },
+      factory: LangChainService.info(),
+      timestamp: new Date().toISOString()
     });
-
+    
   } catch (error) {
-    console.error('Migration tests failed:', error);
+    console.error('Migration test failed:', error);
     
     return NextResponse.json({
       success: false,
       error: error instanceof Error ? error.message : 'Unknown error',
-      message: 'Migration tests failed',
+      message: 'Migration test failed',
       timestamp: new Date().toISOString()
     }, { status: 500 });
   }

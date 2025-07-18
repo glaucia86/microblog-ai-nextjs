@@ -1,16 +1,16 @@
 import { LangChainServiceConfig } from '@/types/langchain-types';
 import { DEFAULT_LANGCHAIN_CONFIG, LANGCHAIN_PRESETS } from '@/lib/config/langchain';
-import { LangChainService } from '../langchain.services';
+import { LangChainMicroblogService } from '../langchain.services'; 
 
 class LangChainFactory {
-  private static instance: LangChainService | null = null;
+  private static instance: LangChainMicroblogService | null = null;
   private static currentConfig: LangChainServiceConfig | null = null;
 
-  static getInstance(config?: Partial<LangChainServiceConfig>): LangChainService {
+  static getInstance(config?: Partial<LangChainServiceConfig>): LangChainMicroblogService { 
     const finalConfig = { ...DEFAULT_LANGCHAIN_CONFIG, ...config };
 
     if (!this.instance || this.configChanged(finalConfig)) {
-      this.instance = new LangChainService(finalConfig);
+      this.instance = new LangChainMicroblogService(finalConfig);
       this.currentConfig = finalConfig;
     }
 
@@ -20,7 +20,7 @@ class LangChainFactory {
   static createWithPreset(
     preset: keyof typeof LANGCHAIN_PRESETS,
     overrides?: Partial<LangChainServiceConfig>
-  ): LangChainService {
+  ): LangChainMicroblogService {
     const presetConfig = LANGCHAIN_PRESETS[preset];
     return this.getInstance({ ...presetConfig, ...overrides });
   }

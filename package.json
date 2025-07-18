@@ -1,12 +1,16 @@
 {
   "name": "microblog-ai-nextjs",
-  "version": "0.1.0",
+  "version": "2.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf .next out dist",
+    "analyze": "ANALYZE=true npm run build"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

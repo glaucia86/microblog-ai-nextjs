@@ -1,4 +1,4 @@
-import { OperationContext } from "@/lib/utils/retry/types";
+import { OperationContext } from "../shared/utils/retry/types";
 import { GeneratedContent } from "./index";
 
 export interface ContentGenerationContext extends OperationContext {

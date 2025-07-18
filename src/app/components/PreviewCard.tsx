@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { GeneratedContent } from '@/types';
-import { formatHashtags, createFullContent } from '@/lib/utils/formatting';
+import { formatHashtags, createFullContent } from '../../shared/utils/formatting';
 import { useCopyToClipboard } from '../../hooks/useCopyToClipboard';
 import { ContentSection } from './preview/ContentSection';
 import { HashtagsDisplay } from './preview/HashtagsDisplay';

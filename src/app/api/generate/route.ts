@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getContentGenerationService } from '@/lib/services/content-generation.service';
-import { validateApiRequest } from '@/lib/utils/api-validation';
-import { checkRateLimit } from '../../../lib/utils/rate-limiting';
-import { handleApiError } from '@/lib/utils/error-handler';
+import { getContentGenerationService } from '@/shared/services/content-generation.service';
+import { validateApiRequest } from '../../../shared/utils/api-validation';
+import { checkRateLimit } from '../../../shared/utils/rate-limiting';
+import { handleApiError } from '../../../shared/utils/error-handler';
 import type { GenerateApiRequest, GenerateApiResponse } from '@/types';
 
 export async function POST(request: NextRequest) {

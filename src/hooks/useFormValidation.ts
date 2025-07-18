@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { validateFormData, ValidationResult } from '@/lib/utils/validation';
+import { validateFormData, ValidationResult } from '../shared/utils/validation';
 import { FormState, ToneOfVoice } from '@/types';
 
 interface UseFormValidationReturn {

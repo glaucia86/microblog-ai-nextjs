@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { LangChainService } from '../../../lib/services/langchain.factory';
-import { getContentGenerationService } from '../../../lib/services/content-generation.service';
+import { LangChainService } from '../../../shared/services/langchain.factory';
+import { getContentGenerationService } from '../../../shared/services/content-generation.service';
 
 export async function GET() {
   try {

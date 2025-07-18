@@ -4,7 +4,7 @@ import React from 'react';
 import { FormState, ToneOfVoice, GenerateApiRequest } from '@/types';
 import { MICROBLOG_LIMITS } from '@/lib/constants/app';
 import EnhancedTextInput from '../EnhancedTextInput';
-import ToneSelector from '../ToneSelector';
+import ToneSelector from '../../components/tone/ToneSelector';
 import CharacterCounter from '../CharacterCounter';
 
 interface GenerationFormProps {

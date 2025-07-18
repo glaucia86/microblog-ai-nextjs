@@ -5,9 +5,7 @@ export { default as EnhancedTextInput } from './EnhancedTextInput';
 export { default as LoadingOverlay } from './LoadingOverlay';
 export { default as PreviewCard } from './PreviewCard';
 export { default as SuccessNotification } from './SuccessNotification';
-export { default as ToneSelector } from './ToneSelector';
-
-// Preview components
+export { default as ToneSelector } from '../components/tone/ToneSelector';
 export * from './preview/CopyButton';
 export * from './preview/ContentSection';
 export * from './preview/HashtagsDisplay';

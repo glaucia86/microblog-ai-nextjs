@@ -1,6 +1,6 @@
 import { FormState } from "@/types";
 import { MICROBLOG_LIMITS } from "../constants/app";
-import { TONE_OPTIONS } from "../constants/tone";
+import { TONE_OPTIONS } from "../constants/tones";
 
 export interface ValidationResult {
   isValid: boolean;

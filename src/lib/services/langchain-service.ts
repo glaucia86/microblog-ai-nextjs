@@ -1,5 +1,5 @@
-import { RetryManager } from "@/retry/retry-manager";
-import { ErrorType } from "@/retry/types";
+import { RetryManager } from "@/lib/utils/retry/retry-manager";
+import { ErrorType } from "@/lib/utils/retry/types";
 import { GeneratedContent } from "@/types";
 import { ContentGenerationContext, LangChainServiceConfig, LangChainTestResult, PerformanceMetrics } from "@/types/langchain-types";
 import { StructuredOutputParser } from "@langchain/core/output_parsers";

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getGitHubModelsService } from '../../../lib/services/github-models.services'
+//import { getGitHubModelsService } from '../../../lib/services/github-models.services'
+import { getLangChainMicroblogService } from '@/lib/services/langchain.factory';
 import type { GenerateApiRequest, GenerateApiResponse } from '@/types';
 
 // Rate limiting configuration
@@ -10,19 +11,19 @@ const requestCounts = new Map<string, { count: number; resetTime: number }>();
 // Input validation
 function validateRequest(body: any): GenerateApiRequest | null {
   const { topic, tone, keywords } = body;
-  
+
   if (!topic || typeof topic !== 'string') {
     return null;
   }
-  
+
   if (!tone || typeof tone !== 'string') {
     return null;
   }
-  
+
   if (keywords !== undefined && typeof keywords !== 'string') {
     return null;
   }
-  
+
   return { topic: topic.trim(), tone: tone.toLowerCase(), keywords: keywords?.trim() };
 }
 
@@ -30,7 +31,7 @@ function validateRequest(body: any): GenerateApiRequest | null {
 function checkRateLimit(clientId: string): boolean {
   const now = Date.now();
   const clientData = requestCounts.get(clientId);
-  
+
   if (!clientData || now > clientData.resetTime) {
     requestCounts.set(clientId, {
       count: 1,
@@ -38,11 +39,11 @@ function checkRateLimit(clientId: string): boolean {
     });
     return true;
   }
-  
+
   if (clientData.count >= MAX_REQUESTS_PER_WINDOW) {
     return false;
   }
-  
+
   clientData.count += 1;
   return true;
 }
@@ -50,10 +51,10 @@ function checkRateLimit(clientId: string): boolean {
 export async function POST(request: NextRequest) {
   try {
     // Extract client identifier (IP or session)
-    const clientId = request.headers.get('x-forwarded-for') || 
-                    request.headers.get('x-real-ip') || 
-                    'anonymous';
-    
+    const clientId = request.headers.get('x-forwarded-for') ||
+      request.headers.get('x-real-ip') ||
+      'anonymous';
+
     // Check rate limit
     if (!checkRateLimit(clientId)) {
       return NextResponse.json(
@@ -61,18 +62,18 @@ export async function POST(request: NextRequest) {
         { status: 429 }
       );
     }
-    
+
     // Parse and validate request body
     const body = await request.json();
     const validatedData = validateRequest(body);
-    
+
     if (!validatedData) {
       return NextResponse.json(
         { success: false, error: 'Invalid request data' },
         { status: 400 }
       );
     }
-    
+
     // Additional validation
     if (validatedData.topic.length < 10 || validatedData.topic.length > 280) {
       return NextResponse.json(
@@ -80,7 +81,7 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-    
+
     const validTones = ['technical', 'casual', 'motivational'];
     if (!validTones.includes(validatedData.tone)) {
       return NextResponse.json(
@@ -88,36 +89,45 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       );
     }
-    
+
     // Generate content using the service
-    const service = getGitHubModelsService();
+    const service = getLangChainMicroblogService({
+      enableLogging: process.env.NODE_ENV === 'development',
+      enableRetry: true,
+      customRetryConfig: {
+        maxAttempts: 3,
+        baseDelayMs: 1000
+      }
+    });
+
     const generatedContent = await service.generateMicroblogContent(
       validatedData.topic,
       validatedData.tone,
       validatedData.keywords
     );
-    
+
     // Return successful response
     const response: GenerateApiResponse = {
       success: true,
       content: generatedContent,
     };
-    
+
     return NextResponse.json(response, {
       status: 200,
       headers: {
         'Cache-Control': 'no-store, max-age=0',
         'Content-Type': 'application/json',
+        'X-Service-Used': 'langchain'
       },
     });
-    
+
   } catch (error) {
-    console.error('Generation API error:', error);
-    
+    console.error('LangChain Generation API error:', error);
+
     // Determine error type and status code
     let statusCode = 500;
     let errorMessage = 'An unexpected error occurred';
-    
+
     if (error instanceof Error) {
       if (error.message.includes('environment variables')) {
         statusCode = 500;
@@ -128,13 +138,16 @@ export async function POST(request: NextRequest) {
       } else if (error.message.includes('Invalid')) {
         statusCode = 400;
         errorMessage = error.message;
+      } else if (error.message.includes('LangChain')) {
+        statusCode = 500;
+        errorMessage = 'AI service temporarily unavailable'
       } else {
         errorMessage = 'Failed to generate content';
       }
     }
-    
+
     return NextResponse.json(
-      { success: false, error: errorMessage },
+      { success: false, error: errorMessage, service: 'langchain' },
       { status: statusCode }
     );
   }
@@ -142,12 +155,28 @@ export async function POST(request: NextRequest) {
 
 // Health check endpoint
 export async function GET() {
-  return NextResponse.json(
-    { 
+
+  try {
+    const service = getLangChainMicroblogService();
+    const testResult = await service.testConnection();
+
+    return NextResponse.json(
+    {
       status: 'healthy',
-      service: 'generate-api',
+      service: 'langchain-generate-api',
       timestamp: new Date().toISOString(),
-    },
-    { status: 200 }
-  );
+      connectivity: {
+        success: testResult.success,
+        latency: testResult.latency,
+        model: testResult.model
+      }
+    });
+  } catch (error) {
+    return NextResponse.json({
+      status: 'unhealthy',
+      service: 'langchain-generate-api',
+      timestamp: new Date().toISOString(),
+      error: error instanceof Error ? error.message : 'Unknown error'
+    }, { status: 503 })
+  }
 }

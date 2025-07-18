@@ -70,6 +70,28 @@ class LangChainMicroblogService {
   }
 
   /**
+   * Return service configuration
+   */
+  getServiceConfig(): LangChainServiceConfig {
+    return { ...this.config };
+  }
+
+  /**
+   * Update service configuration
+   */
+  updateServiceConfig(newConfig: Partial<Pick<LangChainServiceConfig, 'enableLogging' | 'enableRetry'>>): void {
+    this.config.enableLogging = newConfig.enableLogging ?? this.config.enableLogging;
+    this.config.enableRetry = newConfig.enableRetry ?? this.config.enableRetry;
+
+    if (this.config.enableLogging) {
+      console.log('Service configuration updated..: ', {
+        enableLoggin: this.config.enableLogging,
+        enableRetry: this.config.enableRetry
+      });
+    }
+  }
+
+  /**
    * Main content generation method using LangChain
    * Completely replaces previous implementation with OpenAI SDK
    */

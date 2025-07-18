@@ -160,7 +160,7 @@ export class RetryManager {
   }
 
   private logSuccess(context: OperationContext, attempt: number, maxAttempts: number, totalTime: number): void {
-    console.log(`✅ ${context.operationName} succeeded on attempt ${attempt}/${maxAttempts}`, {
+    console.log(`${context.operationName} succeeded on attempt ${attempt}/${maxAttempts}`, {
       totalElapsed: totalTime,
       attempt,
       context: context.topic ? { topic: context.topic, tone: context.tone } : undefined
@@ -168,7 +168,7 @@ export class RetryManager {
   }
 
   private logNonRetryableError(context: OperationContext, error: Error, errorInfo: any, attempt: number): void {
-    console.error(`🚫 ${context.operationName} failed with non-retryable error:`, {
+    console.error(`${context.operationName} failed with non-retryable error:`, {
       error: error.message,
       errorType: errorInfo.type,
       suggestion: errorInfo.suggestion,
@@ -178,7 +178,7 @@ export class RetryManager {
   }
 
   private logRetryAttempt(metrics: RetryMetrics): void {
-    console.warn(`🔄 ${metrics.operationName} attempt ${metrics.attempt}/${metrics.maxAttempts} failed, retrying in ${metrics.nextRetryIn}ms:`, {
+    console.warn(`${metrics.operationName} attempt ${metrics.attempt}/${metrics.maxAttempts} failed, retrying in ${metrics.nextRetryIn}ms:`, {
       error: metrics.lastError,
       errorType: metrics.errorType,
       totalElapsed: metrics.totalElapsed,
@@ -188,7 +188,7 @@ export class RetryManager {
   }
 
   private logFinalFailure(metrics: RetryMetrics): void {
-    console.error(`💀 ${metrics.operationName} failed after ${metrics.maxAttempts} attempts:`, {
+    console.error(`${metrics.operationName} failed after ${metrics.maxAttempts} attempts:`, {
       error: metrics.lastError,
       errorType: metrics.errorType,
       totalElapsed: metrics.totalElapsed,
@@ -198,7 +198,7 @@ export class RetryManager {
 
   updateConfig(newConfig: Partial<RetryConfig>): void {
     this.config = { ...this.config, ...newConfig };
-    console.log('🔧 Retry configuration updated:', this.config);
+    console.log('Retry configuration updated:', this.config);
   }
 
   getConfig(): RetryConfig {

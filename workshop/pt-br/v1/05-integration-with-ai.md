@@ -39,7 +39,7 @@ interface ToneGuidelines {
 class GitHubModelsService {
   private client: OpenAI;
   private readonly toneGuidelines: ToneGuidelines;
-  private readonly modelName: string = "openai/gpt-5";
+  private readonly modelName: string = "gpt-5";
 
   constructor() {
     // Validação de variáveis de ambiente no momento da instanciação
@@ -166,7 +166,7 @@ async generateMicroblogContent(
     const userMessage = this.createUserPrompt(topic, tone, keywords);
 
     const completion = await this.client.chat.completions.create({
-      model: 'openai/gpt-5',
+      model: 'gpt-5',
       messages: [
         { role: 'system', content: systemMessage },
         { role: 'user', content: userMessage }

@@ -1,7 +1,7 @@
 import { LangChainServiceConfig } from '@/types/langchain-types';
 
 export const DEFAULT_LANGCHAIN_CONFIG: LangChainServiceConfig = {
-  modelName: 'gpt-4o',
+  modelName: 'gpt-5',
   temperature: 0.7,
   maxTokens: 500,
   enableLogging: process.env.NODE_ENV === 'development',

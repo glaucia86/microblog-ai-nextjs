@@ -31,7 +31,7 @@ export class LangChainMicroblogService {
   constructor(config?: Partial<LangChainServiceConfig>) {
     // Usar configuração padrão se não fornecida
     const defaultConfig: LangChainServiceConfig = {
-      modelName: 'gpt-4o',
+      modelName: 'gpt-5',
       temperature: 0.7,
       maxTokens: 500,
       enableLogging: process.env.NODE_ENV === 'development',
@@ -168,7 +168,6 @@ export class LangChainMicroblogService {
     this.model = new ChatOpenAI({
       modelName: this.config.modelName,
       temperature: this.config.temperature,
-      maxTokens: this.config.maxTokens,
       openAIApiKey: process.env.NEXT_PUBLIC_GITHUB_MODELS_TOKEN,
       configuration: {
         baseURL: process.env.NEXT_PUBLIC_GITHUB_MODELS_ENDPOINT,

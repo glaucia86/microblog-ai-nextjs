@@ -1,6 +1,6 @@
 # Session 09: Conclusion and Next Steps
 
-In this final session, we’ll celebrate the achievements made during version 1.0 of our **Microblog AI with Next.js** project. Throughout this journey, you’ve learned and applied advanced techniques that combine JavaScript/TypeScript, React, Next.js, Tailwind CSS, and Artificial Intelligence using GitHub Models (GPT-4o) to build a complete and sophisticated application.
+In this final session, we’ll celebrate the achievements made during version 1.0 of our **Microblog AI with Next.js** project. Throughout this journey, you’ve learned and applied advanced techniques that combine JavaScript/TypeScript, React, Next.js, Tailwind CSS, and Artificial Intelligence using GitHub Models (GPT-5) to build a complete and sophisticated application.
 
 ### 🏆 What Have You Learned?
 

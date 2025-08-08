@@ -23,7 +23,7 @@ A content generation application called: Microblog AI with Next.js
 * In version 1.0
 
   * A modern, responsive interface using Next.js v15 combined with Tailwind CSS
-  * Content generation with A.I using **[GitHub Models (OpenAI GPT-4o)](https://github.com/marketplace?type=models)**
+  * Content generation with A.I using **[GitHub Models (OpenAI GPT-5)](https://github.com/marketplace?type=models)**
   * Three different tones of voice: technical, casual, and motivational
   * Hashtag optimization and strategic insights, allowing you to share the generated content across various social media platforms
 
@@ -54,7 +54,7 @@ To follow along with this workshop, you'll need to have the following installed 
 * Docker (WSL 2 for Windows users)
 * Terraform
 * GitHub account (to create a temporary GitHub Models key)
-* OpenAI account (to use GPT-4o API in production)
+* OpenAI account (to use GPT-5 API in production)
 * Cloud service account (for app deployment). It can be: Azure, AWS, or Google Cloud—choose what works best for you!
 
 ## 🎯 Learning Objectives

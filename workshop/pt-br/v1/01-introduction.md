@@ -33,7 +33,7 @@ Vamos criar o Smart Microblog Generator, uma aplicação web e moderna que:
   - Sistema de cópia com feedback visual
 
 **3. API robusta**
-  - Integração com GitHub Models (GPT-4o)
+  - Integração com GitHub Models (GPT-5)
   - Rate limiting para proteção
   - Tratamento de erros detalhado
 
@@ -57,7 +57,7 @@ Aqui está uma visão geral de como será a aplicação:
 **2. GitHub Models**
   - **O que é:** Acesso gratuito a modelos de IA através do GitHub
   - **Por que usar:**
-    - Acesso ao inúmeros modelos de IA de última geração, incluso o modelo GPT-4o sem custo.
+    - Acesso ao inúmeros modelos de IA de última geração, incluso o modelo GPT-5 sem custo.
     - Integração facilitada para projetos pessoais e aprendizado (em estágio de PoCs ou MVPs)
     - Sem necessidade de cartão de crédito (em estágio de PoCs ou MVPs)
 

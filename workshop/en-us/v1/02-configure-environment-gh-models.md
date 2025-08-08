@@ -24,7 +24,7 @@ During the application development, we’ll use GitHub Models—but only during 
 
 GitHub Models is a suite of AI development tools integrated into GitHub, designed to make working with AI more accessible, collaborative, and productive. Instead of managing multiple platforms and complex configurations, GitHub Models provides a unified space inside GitHub itself, where you can experiment with, compare, manage, and evaluate AI models at production scale—all within the familiar and secure GitHub workflow.
 
-In the context of this workshop, we’ll use GitHub Models as our AI provider to generate intelligent content for our microblog, connecting our application directly to the free API (such as GPT-4o). This removes the need for credit cards, API costs, or extra infrastructure.
+In the context of this workshop, we’ll use GitHub Models as our AI provider to generate intelligent content for our microblog, connecting our application directly to the free API (such as GPT-5). This removes the need for credit cards, API costs, or extra infrastructure.
 
 In the GitHub Marketplace, you can explore the list of available models, their features, and how to integrate them into your projects. It’s a great way to discover what AI can do for your applications.
 
@@ -46,7 +46,7 @@ In the GitHub Marketplace, you can explore the list of available models, their f
 
 Our choice of GitHub Models for this project is based on three pillars:
 
-1. **Accessibility**: Anyone with a GitHub account can access advanced models (like GPT-4o) at no cost—no credit card or infrastructure setup needed.
+1. **Accessibility**: Anyone with a GitHub account can access advanced models (like GPT-5) at no cost—no credit card or infrastructure setup needed.
 2. **Easy Integration**: The platform provides a developer-friendly API that integrates seamlessly into our Next.js backend.
 3. **Professional-Grade Experience**: Using GitHub Models mirrors the practices of real-world AI teams—managing, evaluating, and iterating on models and prompts like in production settings.
 

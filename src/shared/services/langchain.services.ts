@@ -31,7 +31,7 @@ export class LangChainMicroblogService {
   constructor(config?: Partial<LangChainServiceConfig>) {
     // Usar configuração padrão se não fornecida
     const defaultConfig: LangChainServiceConfig = {
-      modelName: 'openai/gpt-5',
+      modelName: 'gpt-5',
       temperature: 0.7,
       maxTokens: 500,
       enableLogging: process.env.NODE_ENV === 'development',

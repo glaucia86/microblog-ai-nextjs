@@ -14,7 +14,7 @@ Ao final desta sessão, você será capaz de:
 
 ## Passo 1: Entendendo o GitHub Models e Configuração Inicial
 
-O **[GitHub Models](https://github.com/marketplace/models-github)** é uma plataforma que oferece acesso a modelos de IA avançados através de uma API compatível com OpenAI. Isso significa que podemos usar modelos como GPT-4o de forma escalável e confiável, aproveitando toda a infraestrutura do GitHub para hospedar nossa inteligência artificial.
+O **[GitHub Models](https://github.com/marketplace/models-github)** é uma plataforma que oferece acesso a modelos de IA avançados através de uma API compatível com OpenAI. Isso significa que podemos usar modelos como GPT-5 de forma escalável e confiável, aproveitando toda a infraestrutura do GitHub para hospedar nossa inteligência artificial.
 
 A grande vantagem do GitHub Models é que ele nos permite experimentar com diferentes modelos de IA sem precisar gerenciar nossa própria infraestrutura. Além disso, a compatibilidade com a API da OpenAI significa que nosso código será facilmente portável caso decidamos migrar para outros provedores no futuro. E, claro, é gratuito para uso em projetos de código aberto, o que se alinha perfeitamente com nossa filosofia de desenvolvimento.
 
@@ -39,7 +39,7 @@ interface ToneGuidelines {
 class GitHubModelsService {
   private client: OpenAI;
   private readonly toneGuidelines: ToneGuidelines;
-  private readonly modelName: string = "gpt-4o";
+  private readonly modelName: string = "openai/gpt-5";
 
   constructor() {
     // Validação de variáveis de ambiente no momento da instanciação
@@ -166,7 +166,7 @@ async generateMicroblogContent(
     const userMessage = this.createUserPrompt(topic, tone, keywords);
 
     const completion = await this.client.chat.completions.create({
-      model: 'gpt-4o',
+      model: 'openai/gpt-5',
       messages: [
         { role: 'system', content: systemMessage },
         { role: 'user', content: userMessage }
@@ -194,7 +194,7 @@ async generateMicroblogContent(
 
 ### Compreendendo os parâmetros da API
 
-A configuração do modelo é cuidadosamente otimizada para nossa aplicação. Utilizamos o GPT-4o que é especificamente otimizado para tarefas criativas e precisas. A **temperature** de 0.7 representa um equilíbrio perfeito entre criatividade e consistência - valores próximos de 0.0 são muito determinísticos, enquanto valores próximos de 1.0 são muito criativos e aleatórios. O valor 0.7 é considerado o "sweet spot" para conteúdo criativo mas ainda focado.
+A configuração do modelo é cuidadosamente otimizada para nossa aplicação. Utilizamos o GPT-5 que é especificamente otimizado para tarefas criativas e precisas. A **temperature** de 0.7 representa um equilíbrio perfeito entre criatividade e consistência - valores próximos de 0.0 são muito determinísticos, enquanto valores próximos de 1.0 são muito criativos e aleatórios. O valor 0.7 é considerado o "sweet spot" para conteúdo criativo mas ainda focado.
 
 O **max_completion_tokens** de 500 tokens não apenas limita nossos custos, mas também garante que as respostas sejam concisas e diretas ao ponto. O parâmetro **response_format** configurado como 'json_object' força a IA a retornar uma resposta estruturada e parseável, eliminando a necessidade de processamento adicional de texto.
 

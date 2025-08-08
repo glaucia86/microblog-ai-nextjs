@@ -15,7 +15,7 @@ By the end of this session, you will be able to:
 
 ## Step 1: Understanding GitHub Models and Initial Setup
 
-**[GitHub Models](https://github.com/marketplace/models-github)** is a platform that provides access to advanced AI models through an OpenAI-compatible API. This means we can use models like GPT-4o in a scalable and reliable way, leveraging GitHub’s infrastructure to host our artificial intelligence.
+**[GitHub Models](https://github.com/marketplace/models-github)** is a platform that provides access to advanced AI models through an OpenAI-compatible API. This means we can use models like GPT-5 in a scalable and reliable way, leveraging GitHub’s infrastructure to host our artificial intelligence.
 
 The big advantage of GitHub Models is that it allows us to experiment with different AI models without having to manage our own infrastructure. Additionally, compatibility with the OpenAI API means our code will be easily portable if we decide to switch to other providers in the future. And of course, it’s free to use in open-source projects, which aligns perfectly with our development philosophy.
 
@@ -40,7 +40,7 @@ interface ToneGuidelines {
 class GitHubModelsService {
   private client: OpenAI;
   private readonly toneGuidelines: ToneGuidelines;
-  private readonly modelName: string = "gpt-4o";
+  private readonly modelName: string = "openai/gpt-5";
 
   constructor() {
     // Validate environment variables at instantiation time
@@ -168,7 +168,7 @@ async generateMicroblogContent(
     const userMessage = this.createUserPrompt(topic, tone, keywords);
 
     const completion = await this.client.chat.completions.create({
-      model: 'gpt-4o',
+      model: 'openai/gpt-5',
       messages: [
         { role: 'system', content: systemMessage },
         { role: 'user', content: userMessage }
@@ -196,7 +196,7 @@ async generateMicroblogContent(
 
 ### Understanding the API Parameters
 
-The model configuration is carefully optimized for our application. We use GPT-4o, which is specifically fine-tuned for creative and accurate tasks. A **temperature** of 0.7 provides a perfect balance between creativity and consistency—values closer to 0.0 are more deterministic, while those near 1.0 are highly creative and unpredictable. The 0.7 value is considered a sweet spot for generating focused yet creative content.
+The model configuration is carefully optimized for our application. We use GPT-5, which is specifically fine-tuned for creative and accurate tasks. A **temperature** of 0.7 provides a perfect balance between creativity and consistency—values closer to 0.0 are more deterministic, while those near 1.0 are highly creative and unpredictable. The 0.7 value is considered a sweet spot for generating focused yet creative content.
 
 The **max\_completion\_tokens** set to 500 helps limit cost and ensures that responses are concise and to the point. The **response\_format** set to `json_object` forces the model to return structured, parseable output, eliminating the need for additional post-processing.
 

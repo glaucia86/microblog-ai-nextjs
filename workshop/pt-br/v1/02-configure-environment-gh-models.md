@@ -24,7 +24,7 @@ No decorrer do desenvolvimento da aplicação utlizaremos o GitHub Models. Mas, 
 
 O GitHub Models é uma suíte de ferramentas integrada ao GitHub, projetada para tornar o desenvolvimento com IA mais acessível, colaborativo e produtivo. Em vez de lidar com diversas plataformas e configurações complexas, o GitHub Models oferece um espaço único dentro do próprio GitHub, onde você pode experimentar, comparar, gerenciar e avaliar modelos de IA em escala de produção — tudo isso com a segurança e a integração dos fluxos já conhecidos de projetos no GitHub.
 
-No contexto deste workshop, usaremos o GitHub Models como fonte de IA para gerar textos inteligentes no nosso microblog, conectando nossa aplicação diretamente à API gratuita dos modelos (como GPT-4o). Isso elimina a necessidade de cartão de crédito, custos de API ou infraestrutura adicional.
+No contexto deste workshop, usaremos o GitHub Models como fonte de IA para gerar textos inteligentes no nosso microblog, conectando nossa aplicação diretamente à API gratuita dos modelos (como GPT-5). Isso elimina a necessidade de cartão de crédito, custos de API ou infraestrutura adicional.
 
 No Marketplace, você pode verificar a lista de modelos disponíveis, suas funcionalidades e como integrá-los em seus projetos. É uma ótima maneira de explorar as possibilidades que a IA pode trazer para suas aplicações.
 
@@ -46,7 +46,7 @@ No Marketplace, você pode verificar a lista de modelos disponíveis, suas funci
 
 A escolha do GitHub Models para este projeto se baseia em três pilares:
 
-- 1. **Acessibilidade**: Qualquer pessoa com conta GitHub pode acessar modelos avançados (como GPT-4o) sem custos, sem precisar configurar infraestrutura própria ou fornecer cartão de crédito.
+- 1. **Acessibilidade**: Qualquer pessoa com conta GitHub pode acessar modelos avançados (como GPT-5) sem custos, sem precisar configurar infraestrutura própria ou fornecer cartão de crédito.
 
 - 2. **Facilidade de Integração**: A plataforma oferece uma API amigável, pronta para conectar diretamente ao nosso backend em Next.js.
 

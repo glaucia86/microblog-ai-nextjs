@@ -36,7 +36,7 @@ We’ll build the Smart Microblog Generator, a modern web application that inclu
 
 **3. Robust API**
 
-* Integration with GitHub Models (GPT-4o)
+* Integration with GitHub Models (GPT-5)
 * Rate limiting for protection
 * Detailed error handling
 
@@ -64,7 +64,7 @@ Here’s a preview of what the app looks like:
 * **What it is:** Free access to AI models through GitHub
 * **Why we use it:**
 
-  * Access to cutting-edge models, including GPT-4o, for free
+  * Access to cutting-edge models, including GPT-5, for free
   * Easy integration for personal projects and learning (ideal for PoCs and MVPs)
   * No credit card required (for PoC/MVP usage)
 

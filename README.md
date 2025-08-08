@@ -79,21 +79,24 @@ You can run the application locally using **GitHub Models**. Follow these steps:
 
 The project evolves through versions, each bringing new advancements:
 
-#### 🔹 v2 – RAG Architecture with LangChain.js
-- 📌 Implement LangChain.js - the most important AI web framework
-- 🧩 Implement Retrieval-Augmented Generation (RAG)
-- 🔍 Contextual queries and optimized responses
+#### 🔹 v2 – LangChain.js
+- 📌 Implementation of LangChain.js – the leading web framework for AI, providing advanced tools for building intelligent applications.
 
-#### 🔹 v3 – Integration with Agents
-- 🕹️ Intelligent agents for automation and advanced interactions
+#### 🔹 v3 – RAG Architecture (Retrieval-Augmented Generation)
+- 🧩 Implementation of the RAG architecture (Retrieval-Augmented Generation), making it possible to combine database search with AI-generated responses, allowing the model to access external information and respond in a contextualized and up-to-date manner.
+- 🔍 Contextual queries and optimized responses make the microblog smarter, capable of answering based on real and dynamic content.
 
-#### 🔹 v4 – Model Context Protocol (MCP) with Agents
-- 🧠 MCP protocol to manage context and interaction between agents and AI models
+#### 🔹 v4 – Integration with Intelligent Agents
+- 🕹️ Integration of intelligent agents that automate tasks, perform advanced interactions, and can act autonomously within the application, using the context provided by the RAG architecture.
+- 🤖 Agents will further enhance the user experience, making the microblog interactive and adaptive to different needs.
 
-#### 🔹 v5 – Deploy with Terraform, some Cloud Provider (GCP, AWS, Vercel or Azure)/Toolhouse and some LLM's provider (OpenAI, Ollama, Gemini...)
-- 🚢 Automate deployment with Terraform with IaC
-- ☁️ Orchestrate containers with some Cloud Provider (GCP, AWS, Vercel or Azure) and Toolhouse for AI Agents
-- 🤖 Integrate some additional intelligent features
+#### 🔹 v5 – Model Context Protocol (MCP) with Agents
+- 🧠 MCP protocol to manage context and interaction between agents and AI models, ensuring efficient communication and advanced contextualization.
+
+#### 🔹 v6 – Deploy with Terraform, Cloud Provider (GCP, AWS, Vercel or Azure)/Toolhouse and LLM Providers (OpenAI, Ollama, Gemini...)
+- 🚢 Automate deployment with Terraform and IaC (Infrastructure as Code).
+- ☁️ Orchestrate containers with a Cloud Provider (GCP, AWS, Vercel, or Azure) and Toolhouse for AI agents.
+- 🤖 Integrate additional intelligent features to expand the possibilities of the microblog.
 
 ## 💡 Why Give a Star and Fork?
 
